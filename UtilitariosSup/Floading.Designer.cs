@@ -60,6 +60,7 @@
             this.Cursor = System.Windows.Forms.Cursors.No;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Floading";
+            this.ShowInTaskbar = false;
             this.Text = "Floading";
             this.ResumeLayout(false);
             this.PerformLayout();

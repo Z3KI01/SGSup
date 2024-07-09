@@ -3,23 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|UtilitariosSup||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\fsgsup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UtilitariosSup\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UtilitariosSup\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -28,17 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,25 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.cs",
-              "RelativeDocumentMoniker": "UtilitariosSup\\Form1.cs",
-              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.cs",
-              "RelativeToolTip": "UtilitariosSup\\Form1.cs",
-              "ViewState": "AQIAAIIAAAAAAAAAAAAiwKIAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T03:45:11.911Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\packages.config",
               "RelativeDocumentMoniker": "UtilitariosSup\\packages.config",
@@ -75,31 +63,21 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-07-05T16:37:08.531Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Floading.cs",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Floading.cs",
               "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Floading.cs",
               "RelativeToolTip": "UtilitariosSup\\Floading.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-06T18:45:57.184Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UtilitariosSup",
-              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\UtilitariosSup.csproj",
-              "RelativeDocumentMoniker": "UtilitariosSup\\UtilitariosSup.csproj",
-              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\UtilitariosSup.csproj*",
-              "RelativeToolTip": "UtilitariosSup\\UtilitariosSup.csproj*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-06T22:12:12.764Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -108,29 +86,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.cs",
-              "RelativeDocumentMoniker": "UtilitariosSup\\Form1.cs",
-              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.cs [Design]",
-              "RelativeToolTip": "UtilitariosSup\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T21:30:15.297Z"
+              "DocumentIndex": 3,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "UtilitariosSup\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Properties\\Resources.resx",
+              "RelativeToolTip": "UtilitariosSup\\Properties\\Resources.resx",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAUwHAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-07-09T00:50:57.831Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "fSgSup.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.Designer.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.Designer.cs",
+              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.Designer.cs",
+              "RelativeToolTip": "UtilitariosSup\\fSgSup.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAgwF4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T23:37:48.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fSgSup.cs",
+              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
+              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
+              "RelativeToolTip": "UtilitariosSup\\fSgSup.cs",
+              "ViewState": "AQIAAM8AAAAAAAAAAAAIwNIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T16:24:55.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fSgSup.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
+              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs [Design]",
+              "RelativeToolTip": "UtilitariosSup\\fSgSup.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T16:10:34.627Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Floading.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Floading.cs",
               "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Floading.cs [Design]",
               "RelativeToolTip": "UtilitariosSup\\Floading.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T18:53:00.188Z"
+              "WhenOpened": "2024-07-06T18:53:00.188Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Program.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Program.cs",
@@ -142,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Form1.Designer.cs",
@@ -150,11 +169,12 @@
               "RelativeToolTip": "UtilitariosSup\\Form1.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T02:44:24.694Z"
+              "WhenOpened": "2024-07-05T02:44:24.694Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Form1.resx",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx",
               "RelativeDocumentMoniker": "UtilitariosSup\\Form1.resx",

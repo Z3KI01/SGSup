@@ -29,84 +29,64 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUtilitarios));
-            this.listBoxArquivos = new System.Windows.Forms.ListBox();
+            this.listBoxArquivos = new UtilitariosSup.fUtilitarios.CenteredListBox();
             this.pBSgMaster = new System.Windows.Forms.PictureBox();
             this.lblAviso = new System.Windows.Forms.Label();
-            this.lblAviso2 = new System.Windows.Forms.Label();
-            this.lblAviso3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pBSgMaster)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxArquivos
             // 
             this.listBoxArquivos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBoxArquivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxArquivos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBoxArquivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxArquivos.FormattingEnabled = true;
-            this.listBoxArquivos.ItemHeight = 20;
-            this.listBoxArquivos.Location = new System.Drawing.Point(82, 99);
+            this.listBoxArquivos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.listBoxArquivos.IntegralHeight = false;
+            this.listBoxArquivos.ItemHeight = 16;
+            this.listBoxArquivos.Location = new System.Drawing.Point(9, 101);
             this.listBoxArquivos.Name = "listBoxArquivos";
-            this.listBoxArquivos.Size = new System.Drawing.Size(202, 22);
+            this.listBoxArquivos.Size = new System.Drawing.Size(294, 185);
             this.listBoxArquivos.TabIndex = 0;
             this.listBoxArquivos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxArquivos_MouseDoubleClick);
             // 
             // pBSgMaster
             // 
             this.pBSgMaster.Image = global::UtilitariosSup.Properties.Resources.logo_master_220x48px;
-            this.pBSgMaster.Location = new System.Drawing.Point(54, 25);
+            this.pBSgMaster.Location = new System.Drawing.Point(10, 2);
             this.pBSgMaster.Name = "pBSgMaster";
-            this.pBSgMaster.Size = new System.Drawing.Size(226, 52);
+            this.pBSgMaster.Size = new System.Drawing.Size(293, 94);
+            this.pBSgMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pBSgMaster.TabIndex = 2;
             this.pBSgMaster.TabStop = false;
+            this.pBSgMaster.Click += new System.EventHandler(this.pBSgMaster_Click);
             // 
             // lblAviso
             // 
             this.lblAviso.AutoSize = true;
             this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(11, 145);
+            this.lblAviso.Location = new System.Drawing.Point(6, 299);
             this.lblAviso.Name = "lblAviso";
             this.lblAviso.Size = new System.Drawing.Size(300, 13);
             this.lblAviso.TabIndex = 3;
             this.lblAviso.Text = "*DUPLO CLICK OU F8 PARA INICIAR DOWNLOAD ";
             // 
-            // lblAviso2
-            // 
-            this.lblAviso2.AutoSize = true;
-            this.lblAviso2.BackColor = System.Drawing.Color.Transparent;
-            this.lblAviso2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAviso2.Location = new System.Drawing.Point(15, 101);
-            this.lblAviso2.Name = "lblAviso2";
-            this.lblAviso2.Size = new System.Drawing.Size(66, 18);
-            this.lblAviso2.TabIndex = 4;
-            this.lblAviso2.Text = "Buscar:";
-            // 
-            // lblAviso3
-            // 
-            this.lblAviso3.AutoSize = true;
-            this.lblAviso3.BackColor = System.Drawing.Color.Transparent;
-            this.lblAviso3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAviso3.Location = new System.Drawing.Point(284, 92);
-            this.lblAviso3.Name = "lblAviso3";
-            this.lblAviso3.Size = new System.Drawing.Size(27, 31);
-            this.lblAviso3.TabIndex = 5;
-            this.lblAviso3.Text = "⬍";
-            // 
             // fUtilitarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 182);
-            this.Controls.Add(this.lblAviso3);
-            this.Controls.Add(this.lblAviso2);
+            this.ClientSize = new System.Drawing.Size(316, 336);
             this.Controls.Add(this.lblAviso);
             this.Controls.Add(this.pBSgMaster);
             this.Controls.Add(this.listBoxArquivos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "fUtilitarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SG Sup";
+            this.Text = "SGBr - Utilitário para download de arquivos";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.fUtilitarios_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pBSgMaster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,10 +95,8 @@
 
         #endregion
         private System.Windows.Forms.PictureBox pBSgMaster;
-        public System.Windows.Forms.ListBox listBoxArquivos;
         private System.Windows.Forms.Label lblAviso;
-        public System.Windows.Forms.Label lblAviso2;
-        public System.Windows.Forms.Label lblAviso3;
+        public CenteredListBox listBoxArquivos;
     }
 }
 

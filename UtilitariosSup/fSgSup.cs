@@ -28,11 +28,14 @@ namespace UtilitariosSup
         {
             InitializeComponent();
             LoadDownloadItemsAsync();
+
+            this.MouseClick += fUtilitarios_MouseClick;
+            this.pBSgMaster.Click +=  pBSgMaster_Click;
         }
 
         private async void LoadDownloadItemsAsync()
         {
-            
+            listBoxArquivos.Enabled = false;
             listBoxArquivos.Items.Clear();
             listBoxArquivos.Items.Add("CARREGANDO...");
 
@@ -47,18 +50,21 @@ namespace UtilitariosSup
                     if (!response.IsSuccessStatusCode)
                     {
                         string errorResponse = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show($"ERRO AO CARREGAR LISTA DE DOWNLOADS: {response.StatusCode} - {errorResponse}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show($"ERRO AO CARREGAR LISTA DE DOWNLOADS: {response.StatusCode} - {errorResponse}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
                     string jsonResponse = await response.Content.ReadAsStringAsync();
                     var downloadResponse = JsonConvert.DeserializeObject<DownloadResponse>(jsonResponse);
                     _downloadItems = downloadResponse.Data;
+
+                    listBoxArquivos.Enabled = true;
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"ERRO AO CARREGAR LISTA DE DOWNLOADS: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"ERRO AO CARREGAR LISTA DE DOWNLOADS: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             finally
@@ -90,6 +96,7 @@ namespace UtilitariosSup
             {
                 var selectedItem = _downloadItems[listBoxArquivos.SelectedIndex];
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = @"C:\SGBR\Master\Utilitarios";
                 saveFileDialog.FileName = selectedItem.Nome;
                 saveFileDialog.Filter = GetFileFilter(selectedItem.Url);
 
@@ -108,10 +115,14 @@ namespace UtilitariosSup
                 Invoke(new Action(() =>
                 {
                     floading.StartPosition = FormStartPosition.Manual;
-                    floading.Location = new Point(this.Location.X + (this.Width - floading.Width) / 2,
-                                                  this.Location.Y + (this.Height - floading.Height) / 2);
+
+                    floading.Location = new Point(
+                    this.Location.X + (this.Width - floading.Width) / 2,
+                    this.Location.Y + (this.Height - floading.Height) / 2
+                    );
+
                     floading.Show();
-                    lblAviso.Text = "    AGUARDE, FINALIZANDO O DOWNLOAD..."; 
+                    lblAviso.Text = "    AGUARDE, FINALIZANDO O DOWNLOAD...";
                 }));
                 floading.Refresh();
 
@@ -148,14 +159,14 @@ namespace UtilitariosSup
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"ERRO AO BAIXAR O ARQUIVO: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"ERRO AO BAIXAR O ARQUIVO: {ex.Message}", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
                 Invoke(new Action(() =>
                 {
                     floading.Close();
-                    lblAviso.Text = "*DUPLO CLICK OU F8 PARA INICIAR DOWNLOAD"; 
+                    lblAviso.Text = "*DUPLO CLICK OU F8 PARA INICIAR DOWNLOAD";
                 }));
             }
         }
@@ -170,6 +181,7 @@ namespace UtilitariosSup
                 {
                     var selectedItem = _downloadItems[listBoxArquivos.SelectedIndex];
                     SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.InitialDirectory = @"C:\SGBR\Master\Utilitarios";
                     saveFileDialog.FileName = selectedItem.Nome;
                     saveFileDialog.Filter = GetFileFilter(selectedItem.Url);
 
@@ -191,11 +203,11 @@ namespace UtilitariosSup
             string fileExtension = System.IO.Path.GetExtension(url);
             if (!string.IsNullOrEmpty(fileExtension))
             {
-                return $"Files (*{fileExtension})|*{fileExtension}";
+                return $"Files ({fileExtension})|{fileExtension}";
             }
             else
             {
-                return "All files (*.*)|*.*";
+                return "All files (.)|.";
             }
         }
 
@@ -204,10 +216,44 @@ namespace UtilitariosSup
             public string Nome { get; set; }
             public string Url { get; set; }
         }
+        private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && !listBoxArquivos.ClientRectangle.Contains(listBoxArquivos.PointToClient(e.Location)))
+            { 
+                listBoxArquivos.Focus();
+            }
+        }
+        private void pBSgMaster_Click(object sender, EventArgs e)
+        {
+            listBoxArquivos.Focus();
+        }
 
         public class DownloadResponse
         {
             public List<DownloadItem> Data { get; set; }
         }
+
+        public class CenteredListBox : ListBox
+        {
+
+            protected override void OnDrawItem(DrawItemEventArgs e)
+            {
+                if (e.Index < 0 || e.Index >= this.Items.Count)
+                    return;
+
+                e.DrawBackground();
+                e.DrawFocusRectangle();
+
+                var itemText = this.Items[e.Index].ToString();
+                var textSize = e.Graphics.MeasureString(itemText, e.Font);
+
+                
+                var localizacao = new PointF(e.Bounds.X + (e.Bounds.Width - textSize.Width) / 2,
+                                          e.Bounds.Y + (e.Bounds.Height - textSize.Height) / 2);
+
+                e.Graphics.DrawString(itemText, e.Font, new SolidBrush(e.ForeColor), localizacao);
+            }
+        }
+
     }
 }
