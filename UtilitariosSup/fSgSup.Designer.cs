@@ -44,7 +44,7 @@
             this.listBoxArquivos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listBoxArquivos.IntegralHeight = false;
             this.listBoxArquivos.ItemHeight = 16;
-            this.listBoxArquivos.Location = new System.Drawing.Point(9, 101);
+            this.listBoxArquivos.Location = new System.Drawing.Point(9, 97);
             this.listBoxArquivos.Name = "listBoxArquivos";
             this.listBoxArquivos.Size = new System.Drawing.Size(294, 185);
             this.listBoxArquivos.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.lblAviso.AutoSize = true;
             this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(6, 299);
+            this.lblAviso.Location = new System.Drawing.Point(6, 295);
             this.lblAviso.Name = "lblAviso";
             this.lblAviso.Size = new System.Drawing.Size(300, 13);
             this.lblAviso.TabIndex = 3;
@@ -76,13 +76,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 336);
+            this.ClientSize = new System.Drawing.Size(316, 322);
             this.Controls.Add(this.lblAviso);
             this.Controls.Add(this.pBSgMaster);
             this.Controls.Add(this.listBoxArquivos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "fUtilitarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SGBr - Utilitário para download de arquivos";

@@ -30,7 +30,7 @@ namespace UtilitariosSup
             LoadDownloadItemsAsync();
 
             this.MouseClick += fUtilitarios_MouseClick;
-            this.pBSgMaster.Click +=  pBSgMaster_Click;
+            this.pBSgMaster.Click += pBSgMaster_Click;
         }
 
         private async void LoadDownloadItemsAsync()
@@ -219,7 +219,7 @@ namespace UtilitariosSup
         private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && !listBoxArquivos.ClientRectangle.Contains(listBoxArquivos.PointToClient(e.Location)))
-            { 
+            {
                 listBoxArquivos.Focus();
             }
         }
@@ -247,7 +247,7 @@ namespace UtilitariosSup
                 var itemText = this.Items[e.Index].ToString();
                 var textSize = e.Graphics.MeasureString(itemText, e.Font);
 
-                
+
                 var localizacao = new PointF(e.Bounds.X + (e.Bounds.Width - textSize.Width) / 2,
                                           e.Bounds.Y + (e.Bounds.Height - textSize.Height) / 2);
 
