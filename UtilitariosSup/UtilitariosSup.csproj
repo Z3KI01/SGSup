@@ -173,6 +173,7 @@
     <None Include="Resources\logo-master-220x48px.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lupa-pequena.png" />
     <Content Include="sgSup-removebg-preview-_1_.ico" />
     <Content Include="SGSUPIcone.ico" />
   </ItemGroup>
