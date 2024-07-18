@@ -53,6 +53,7 @@
             this.listBoxArquivos.Size = new System.Drawing.Size(294, 207);
             this.listBoxArquivos.TabIndex = 0;
             this.listBoxArquivos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxArquivos_MouseClick);
+            this.listBoxArquivos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxArquivos_KeyDown);
             this.listBoxArquivos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxArquivos_MouseDoubleClick);
             // 
             // pBSgMaster
@@ -69,13 +70,13 @@
             // lblAviso
             // 
             this.lblAviso.AutoSize = true;
-            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(8, 358);
+            this.lblAviso.Location = new System.Drawing.Point(8, 357);
             this.lblAviso.Name = "lblAviso";
-            this.lblAviso.Size = new System.Drawing.Size(305, 12);
+            this.lblAviso.Size = new System.Drawing.Size(303, 9);
             this.lblAviso.TabIndex = 3;
-            this.lblAviso.Text = "*OU DUPLO CLICK NO NOME PARA INICIAR DONWLOAD";
+            this.lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
             this.lblAviso.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblAviso_MouseClick);
             // 
             // BtnDownload
@@ -89,7 +90,7 @@
             this.BtnDownload.Name = "BtnDownload";
             this.BtnDownload.Size = new System.Drawing.Size(99, 28);
             this.BtnDownload.TabIndex = 4;
-            this.BtnDownload.Text = "DONWLOAD - F8";
+            this.BtnDownload.Text = "DOWNLOAD - F8";
             this.BtnDownload.UseVisualStyleBackColor = false;
             this.BtnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 

@@ -3,8 +3,9 @@
     "",
     "\\UtilitariosSup",
     "\\UtilitariosSup\\bin",
-    "\\UtilitariosSup\\obj"
+    "\\UtilitariosSup\\obj",
+    "\\UtilitariosSup\\Properties"
   ],
-  "SelectedNode": "\\UtilitariosSup.sln",
+  "SelectedNode": "\\UtilitariosSup\\Floading.cs",
   "PreviewInSolutionExplorer": false
 }

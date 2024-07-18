@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\fSgSup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\users\\ezequ\\onedrive\\\u00E1rea de trabalho\\utilitariossup\\utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\fsgsup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\floading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -91,26 +91,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "fSgSup.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
-              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
-              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs [Design]",
-              "RelativeToolTip": "UtilitariosSup\\fSgSup.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T00:37:49.168Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "fSgSup.cs",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
               "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
               "RelativeToolTip": "UtilitariosSup\\fSgSup.cs",
-              "ViewState": "AQIAAD0CAAAAAAAAAAAswDYBAAAVAAAA",
+              "ViewState": "AQIAAEkCAAAAAAAAAAA1wLkBAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T16:24:55.711Z",
               "IsPinned": true,
@@ -122,20 +109,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "fSgSup.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
+              "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.cs [Design]",
+              "RelativeToolTip": "UtilitariosSup\\fSgSup.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T22:52:35.736Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "fSgSup.Designer.cs",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.Designer.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.Designer.cs",
               "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\fSgSup.Designer.cs",
               "RelativeToolTip": "UtilitariosSup\\fSgSup.Designer.cs",
-              "ViewState": "AQIAAFMAAAAAAAAAAAAzwGoAAABZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-13T22:21:12.307Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Floading.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Floading.cs",
@@ -166,8 +165,7 @@
               "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx",
               "RelativeToolTip": "UtilitariosSup\\Form1.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-07-05T02:44:23.046Z",
-              "EditorCaption": " [Somente Leitura]"
+              "WhenOpened": "2024-07-05T02:44:23.046Z"
             }
           ]
         }
