@@ -65,3 +65,37 @@ C:\Users\ezequ\OneDrive\Área de Trabalho\UtilitariosSup\UtilitariosSup\bin\Debu
 C:\Users\ezequ\OneDrive\Área de Trabalho\UtilitariosSup\UtilitariosSup\bin\Debug\SG SUP.pdb
 C:\Users\ezequ\OneDrive\Área de Trabalho\UtilitariosSup\UtilitariosSup\obj\Debug\SG SUP.exe
 C:\Users\ezequ\OneDrive\Área de Trabalho\UtilitariosSup\UtilitariosSup\obj\Debug\SG SUP.pdb
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\SG SUP.exe.config
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\SG SUP.exe
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\SG SUP.pdb
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\Newtonsoft.Json.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Buffers.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Memory.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Net.Http.Json.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Numerics.Vectors.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Text.Encodings.Web.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Text.Json.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.ValueTuple.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\Newtonsoft.Json.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Buffers.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Memory.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Net.Http.Json.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Numerics.Vectors.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Text.Encodings.Web.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Text.Json.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.ValueTuple.xml
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.AssemblyReference.cache
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Floading.resources
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.fUtilitarios.resources
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Properties.Resources.resources
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.GenerateResource.cache
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.CoreCompileInputs.cache
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\Utilitar.454F9362.Up2Date
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\SG SUP.exe
+C:\Projetos\SGSup\UtilitariosSup\obj\Debug\SG SUP.pdb
