@@ -17,6 +17,8 @@ namespace UtilitariosSup
 {
     public partial class fUtilitarios : Form
     {
+        #region Estilização de barra superior, arrendodamento de botões e centralização de itens na ListBox
+
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwn, int attr, int[] attrValue, int attriSize);
 
@@ -33,8 +35,87 @@ namespace UtilitariosSup
             int nLeft, int nTop, int nRight, int nBottom, int nWidhtEllipse, int nHeightEllipse
         );
 
+      
+
+        public class CenteredListBox : ListBox
+        {
+            public CenteredListBox()
+            {
+                this.DrawMode = DrawMode.OwnerDrawFixed;
+            }
+
+            protected override void OnDrawItem(DrawItemEventArgs e)
+            {
+                if (e.Index < 0 || e.Index >= this.Items.Count)
+                    return;
+
+                e.DrawBackground();
+
+                bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+                bool hasFocus = (e.State & DrawItemState.Focus) == DrawItemState.Focus;
+                Color backgroundColor = (isSelected || hasFocus) ? SystemColors.Highlight : e.BackColor;
+                Color foregroundColor = (isSelected || hasFocus) ? SystemColors.HighlightText : e.ForeColor;
+
+                using (Brush backgroundBrush = new SolidBrush(backgroundColor))
+                {
+                    e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
+                }
+
+                string itemText = this.Items[e.Index].ToString();
+                SizeF textSize = e.Graphics.MeasureString(itemText, e.Font);
+                PointF textLocation = new PointF(
+                    e.Bounds.X + (e.Bounds.Width - textSize.Width) / 2,
+                    e.Bounds.Y + (e.Bounds.Height - textSize.Height) / 2
+                );
+
+                using (Brush textBrush = new SolidBrush(foregroundColor))
+                {
+                    e.Graphics.DrawString(itemText, e.Font, textBrush, textLocation);
+                }
+
+                e.DrawFocusRectangle();
+            }
+
+            protected override void OnLostFocus(EventArgs e)
+            {
+                base.OnLostFocus(e);
+                Invalidate();
+            }
+
+            protected override void OnSelectedIndexChanged(EventArgs e)
+            {
+                base.OnSelectedIndexChanged(e);
+                Invalidate();
+            }
+        }
+        #endregion
+
         private FtpClient ftpClient;
 
+        private List<DownloadItem> _downloadItems = new List<DownloadItem>();
+
+        public class DownloadResponse
+        {
+            public List<DownloadItem> Data { get; set; }
+        }
+
+        public class DownloadItem
+        {
+            public string Nome { get; set; }
+            public string Url { get; set; }
+        }
+
+        public fUtilitarios()
+        {
+            InitializeComponent();
+            LoadDownloadItemsAsync();
+
+            this.MouseClick += fUtilitarios_MouseClick;
+            this.pBSgMaster.Click += pBSgMaster_Click;
+
+            ftpClient = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86");
+            ftpClient.Connect();
+        }
         private void fUtilitarios_Load(object sender, EventArgs e)
         {
             btnDownload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
@@ -47,20 +128,39 @@ namespace UtilitariosSup
             this.KeyDown += FUtilitarios_KeyDown;
             pbButtonPesquisar.MouseClick += pbButtonPesquisar_MouseClick;
         }
-        public fUtilitarios()
+
+
+        private void FUtilitarios_KeyDown(object sender, KeyEventArgs e)
         {
-            InitializeComponent();
-            LoadDownloadItemsAsync();
-
-            this.MouseClick += fUtilitarios_MouseClick;
-            this.pBSgMaster.Click += pBSgMaster_Click;
-
-            ftpClient = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86");
-            ftpClient.Connect();
+            if (e.KeyCode == Keys.F2)
+            {
+                TbPesquisar.Clear();
+                listBoxDownload.ClearSelected();
+                TbPesquisar.TextAlign = HorizontalAlignment.Left;
+                TbPesquisar.Focus();
+                TbPesquisar.ForeColor = Color.Black;
+            }
         }
 
-        private List<DownloadItem> _downloadItems = new List<DownloadItem>();
+        private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && !listBoxDownload.ClientRectangle.Contains(listBoxDownload.PointToClient(e.Location)) && listBoxDownload.Items.Count > 0)
+            {
+                if (listBoxDownload.SelectedIndex == -1)
+                {
+                    listBoxDownload.SelectedIndex = 0;
+                }
 
+                listBoxDownload.Focus();
+                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                TbPesquisar.ForeColor = Color.DarkGray;
+                TbPesquisar.TextAlign = HorizontalAlignment.Center;
+                TbPesquisar.Text = "BUSCAR (F2)";
+            }
+        }
+
+
+        #region Conexão com API e listagem na ListBox
         private async void LoadDownloadItemsAsync()
         {
             btnDownload.Enabled = false;
@@ -123,18 +223,8 @@ namespace UtilitariosSup
             }
         }
 
+        #endregion
 
-        private void FUtilitarios_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F2)
-            {
-                TbPesquisar.Clear();
-                listBoxDownload.ClearSelected();
-                TbPesquisar.TextAlign = HorizontalAlignment.Left;
-                TbPesquisar.Focus();
-                TbPesquisar.ForeColor = Color.Black;
-            }
-        }
 
         private void listBoxArquivos_MouseClick(object sender, MouseEventArgs e)
         {
@@ -220,6 +310,75 @@ namespace UtilitariosSup
             }
         }
 
+        private void TbPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = TbPesquisar.Text.ToUpper();
+
+            int index = listBoxDownload.FindString(filtro);
+        }
+
+        private void TbPesquisar_LostFocus(object sender, EventArgs e)
+        {
+            string filtro = TbPesquisar.Text.ToLower();
+
+            int index = listBoxDownload.FindStringExact(filtro);
+
+            if (index != ListBox.NoMatches)
+            {
+                listBoxDownload.SelectedIndex = index;
+                listBoxDownload.TopIndex = index;
+            }
+
+        }
+
+        private void listBoxArquivos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                IniciarDownload();
+            }
+        }
+
+
+        private void listBoxArquivos_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            IniciarDownload();
+        }
+
+        private void pBSgMaster_Click(object sender, EventArgs e)
+        {
+            if (listBoxDownload.Items.Count > 0)
+            {
+                if (listBoxDownload.SelectedIndex == -1)
+                {
+                    listBoxDownload.SelectedIndex = 0;
+                }
+
+                listBoxDownload.Focus();
+                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                TbPesquisar.ForeColor = Color.DarkGray;
+                TbPesquisar.TextAlign = HorizontalAlignment.Center;
+                TbPesquisar.Text = "BUSCAR (F2)";
+            }
+        }
+
+
+        private void lblAviso_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (listBoxDownload.Items.Count > 0)
+            {
+                if (listBoxDownload.SelectedIndex == -1)
+                {
+                    listBoxDownload.SelectedIndex = 0;
+                }
+
+                listBoxDownload.Focus();
+                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                TbPesquisar.ForeColor = Color.DarkGray;
+                TbPesquisar.TextAlign = HorizontalAlignment.Center;
+                TbPesquisar.Text = "BUSCAR (F2)";
+            }
+        }
 
         private void Pesquisar()
         {
@@ -257,54 +416,6 @@ namespace UtilitariosSup
             listBoxDownload.SelectedIndex = indiceSelecionadoAnterior;
         }
 
-
-
-
-        private void TbPesquisar_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = TbPesquisar.Text.ToUpper();
-
-            int index = listBoxDownload.FindString(filtro);
-        }
-
-        private void TbPesquisar_LostFocus(object sender, EventArgs e)
-        {
-            string filtro = TbPesquisar.Text.ToLower();
-
-            int index = listBoxDownload.FindStringExact(filtro);
-
-            if (index != ListBox.NoMatches)
-            {
-                listBoxDownload.SelectedIndex = index;
-                listBoxDownload.TopIndex = index;
-            }
-
-        }
-        private void BtnDownload_Click(object sender, EventArgs e)
-        {
-            {
-                if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
-                {
-                    IniciarDownload();
-                }
-                else
-                {
-                    if (listBoxDownload.Items.Count > 0)
-                    {
-                        MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                        lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
-                        TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                        TbPesquisar.ForeColor = Color.DarkGray;
-                        TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                        TbPesquisar.Text = "BUSCAR (F2)";
-                        listBoxDownload.SelectedIndex = 0;
-                        listBoxDownload.Focus();
-                    }
-                }
-            }
-        }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.F8)
@@ -338,20 +449,36 @@ namespace UtilitariosSup
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void listBoxArquivos_KeyDown(object sender, KeyEventArgs e)
+
+        private void BtnDownload_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
             {
-                IniciarDownload();
+                if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
+                {
+                    if (tcListaArquivos.SelectedIndex == 0)
+                        IniciarDownload();
+                    else
+                        IniciarDownloadFtp();
+                }
+                else
+                {
+                    if (listBoxDownload.Items.Count > 0)
+                    {
+                        MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
+                        lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
+                        TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                        TbPesquisar.ForeColor = Color.DarkGray;
+                        TbPesquisar.TextAlign = HorizontalAlignment.Center;
+                        TbPesquisar.Text = "BUSCAR (F2)";
+                        listBoxDownload.SelectedIndex = 0;
+                        listBoxDownload.Focus();
+                    }
+                }
             }
         }
 
-
-        private void listBoxArquivos_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            IniciarDownload();
-        }
-
+        #region Download itens API
         private async void DownloadFileAsync(string url, string filePath)
         {
             Floading floading = new Floading();
@@ -418,36 +545,6 @@ namespace UtilitariosSup
             }
         }
 
-        // By Zequi :)
-
-        private void IniciarUpload()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Title = "Selecione um arquivo para enviar",
-                Filter = "Todos os arquivos (*.*)|*.*"
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = openFileDialog.FileName;
-                string fileName = Path.GetFileName(filePath);
-                string remotePath = "/dados/sgbr.com.br/interno/arquivos/" + fileName;
-
-                using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
-                {
-                    ftp.Connect();
-
-                    ftp.UploadFile(filePath, remotePath);
-                }
-            }
-        }
-
-        private void btnUpload_Click(object sender, EventArgs e)
-        {
-            IniciarUpload();
-            carregarListaFTP("/dados/sgbr.com.br/interno/arquivos/");
-        }
 
         private void IniciarDownload()
         {
@@ -487,9 +584,112 @@ namespace UtilitariosSup
             }
         }
 
-        private string GetFileFilter(string url)
+        #endregion
+
+        #region FTP
+
+        private void btnUpload_Click(object sender, EventArgs e)
         {
-            string fileExtension = System.IO.Path.GetExtension(url).ToLower();
+            IniciarUpload();
+            carregarListaFTP("/dados/sgbr.com.br/interno/arquivos/");
+        }
+
+        private void tcListaArquivos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcListaArquivos.SelectedIndex == 1)
+            {
+                //using (FLogin login = new FLogin())
+                //{
+                //    login.StartPosition = FormStartPosition.Manual;
+                //    login.Location = new Point(
+                //        this.Location.X + (this.Width - login.Width) / 2,
+                //        this.Location.Y + (this.Height - login.Height) / 2
+                //    );
+
+                //    login.ShowDialog();
+                //}
+
+                carregarListaFTP("/dados/sgbr.com.br/interno/arquivos/");
+
+            }
+        }
+        private void carregarListaFTP(string directoryPath)
+        {
+            try
+            {
+                var items = ftpClient.GetListing(directoryPath, FtpListOption.AllFiles);
+
+                listBoxUpload.Items.Clear();
+
+                foreach (var item in items)
+                {
+                    listBoxUpload.Items.Add(item.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao listar arquivos do FTP : {ex.Message}");
+            }
+        }
+
+        private void IniciarUpload()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Selecione um arquivo para enviar",
+                Filter = "Todos os arquivos (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = Path.GetFileName(filePath);
+                string remotePath = "/dados/sgbr.com.br/interno/arquivos/" + fileName;
+
+                using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
+                {
+                    ftp.Connect();
+
+                    ftp.UploadFile(filePath, remotePath);
+                }
+            }
+        }
+        private void IniciarDownloadFtp()
+        {
+            if (listBoxUpload.SelectedIndex != -1)
+            {
+                string arquivoSelecionadoFtp = listBoxUpload.SelectedItem.ToString();
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = @"C:\SGBR\Master\Utilitarios";
+                saveFileDialog.FileName = System.IO.Path.GetFileName(arquivoSelecionadoFtp);
+                saveFileDialog.Filter = GetFileFilter(arquivoSelecionadoFtp);
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string localPath = saveFileDialog.FileName;
+
+                    try
+                    {
+                        ftpClient.DownloadFile(localPath, arquivoSelecionadoFtp);
+                        MessageBox.Show("Download conclúido com sucesso!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao baixar o arquivo: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um arquivo para baixar!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        #endregion
+
+        private string GetFileFilter(string arquivoSelecionado)
+        {
+            string fileExtension = System.IO.Path.GetExtension(arquivoSelecionado).ToLower();
             string filterDescription = "Arquivo";
 
             switch (fileExtension)
@@ -532,160 +732,7 @@ namespace UtilitariosSup
             return $"{filterDescription} (*{fileExtension})|*{fileExtension}";
         }
 
+        // By Zequi :)
 
-        public class DownloadItem
-        {
-            public string Nome { get; set; }
-            public string Url { get; set; }
-        }
-
-        private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && !listBoxDownload.ClientRectangle.Contains(listBoxDownload.PointToClient(e.Location)) && listBoxDownload.Items.Count > 0)
-            {
-                if (listBoxDownload.SelectedIndex == -1)
-                {
-                    listBoxDownload.SelectedIndex = 0;
-                }
-
-                listBoxDownload.Focus();
-                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                TbPesquisar.ForeColor = Color.DarkGray;
-                TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                TbPesquisar.Text = "BUSCAR (F2)";
-            }
-        }
-
-        private void pBSgMaster_Click(object sender, EventArgs e)
-        {
-            if (listBoxDownload.Items.Count > 0)
-            {
-                if (listBoxDownload.SelectedIndex == -1)
-                {
-                    listBoxDownload.SelectedIndex = 0;
-                }
-
-                listBoxDownload.Focus();
-                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                TbPesquisar.ForeColor = Color.DarkGray;
-                TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                TbPesquisar.Text = "BUSCAR (F2)";
-            }
-        }
-
-
-        private void lblAviso_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (listBoxDownload.Items.Count > 0)
-            {
-                if (listBoxDownload.SelectedIndex == -1)
-                {
-                    listBoxDownload.SelectedIndex = 0;
-                }
-
-                listBoxDownload.Focus();
-                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                TbPesquisar.ForeColor = Color.DarkGray;
-                TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                TbPesquisar.Text = "BUSCAR (F2)";
-            }
-        }
-
-        public class DownloadResponse
-        {
-            public List<DownloadItem> Data { get; set; }
-        }
-
-        public class CenteredListBox : ListBox
-        {
-            public CenteredListBox()
-            {
-                this.DrawMode = DrawMode.OwnerDrawFixed;
-            }
-
-            protected override void OnDrawItem(DrawItemEventArgs e)
-            {
-                if (e.Index < 0 || e.Index >= this.Items.Count)
-                    return;
-
-                e.DrawBackground();
-
-                bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-                bool hasFocus = (e.State & DrawItemState.Focus) == DrawItemState.Focus;
-                Color backgroundColor = (isSelected || hasFocus) ? SystemColors.Highlight : e.BackColor;
-                Color foregroundColor = (isSelected || hasFocus) ? SystemColors.HighlightText : e.ForeColor;
-
-                using (Brush backgroundBrush = new SolidBrush(backgroundColor))
-                {
-                    e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
-                }
-
-                string itemText = this.Items[e.Index].ToString();
-                SizeF textSize = e.Graphics.MeasureString(itemText, e.Font);
-                PointF textLocation = new PointF(
-                    e.Bounds.X + (e.Bounds.Width - textSize.Width) / 2,
-                    e.Bounds.Y + (e.Bounds.Height - textSize.Height) / 2
-                );
-
-                using (Brush textBrush = new SolidBrush(foregroundColor))
-                {
-                    e.Graphics.DrawString(itemText, e.Font, textBrush, textLocation);
-                }
-
-                e.DrawFocusRectangle();
-            }
-
-
-
-            protected override void OnLostFocus(EventArgs e)
-            {
-                base.OnLostFocus(e);
-                Invalidate();
-            }
-
-            protected override void OnSelectedIndexChanged(EventArgs e)
-            {
-                base.OnSelectedIndexChanged(e);
-                Invalidate();
-            }
-        }
-
-        private void tabControlItensFixos_Click(object sender, EventArgs e)
-        {
-            if (tcListaArquivos.SelectedIndex == 1)
-            {
-                //using (FLogin login = new FLogin())
-                //{
-                //    login.StartPosition = FormStartPosition.Manual;
-                //    login.Location = new Point(
-                //        this.Location.X + (this.Width - login.Width) / 2,
-                //        this.Location.Y + (this.Height - login.Height) / 2
-                //    );
-
-                //    login.ShowDialog();
-                //}
-
-                btnUpload.Enabled = true;
-            }
-        }
-
-        private void carregarListaFTP(string directoryPath)
-        {
-            try
-            {
-                var items = ftpClient.GetListing(directoryPath, FtpListOption.AllFiles);
-
-                listBoxUpload.Items.Clear();
-
-                foreach (var item in items)
-                {
-                    listBoxUpload.Items.Add(item.Name);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao listar arquivos do FTP : {ex.Message}");
-            }
-        }
     }
 }

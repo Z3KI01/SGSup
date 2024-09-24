@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Projetos\\SGSup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:UtilitariosSup\\fSgSup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -58,8 +58,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-07-05T16:37:08.531Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-06T18:45:57.184Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -97,7 +95,7 @@
               "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
               "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs",
               "RelativeToolTip": "UtilitariosSup\\fSgSup.cs",
-              "ViewState": "AQIAAJ4BAAAAAAAAAAAjwLIBAABWAAAA",
+              "ViewState": "AQIAAFQCAAAAAAAAAAAmwN0CAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T16:24:55.711Z",
               "IsPinned": true,
@@ -165,8 +163,7 @@
               "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Floading.cs [Design]",
               "RelativeToolTip": "UtilitariosSup\\Floading.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T18:53:00.188Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-07-06T18:53:00.188Z"
             },
             {
               "$type": "Document",
@@ -178,8 +175,7 @@
               "RelativeToolTip": "UtilitariosSup\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T16:37:09.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-05T16:37:09.733Z"
             },
             {
               "$type": "Document",
@@ -190,8 +186,7 @@
               "ToolTip": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx",
               "RelativeToolTip": "..\\..\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-07-05T02:44:23.046Z",
-              "EditorCaption": " [Somente Leitura]"
+              "WhenOpened": "2024-07-05T02:44:23.046Z"
             }
           ]
         },

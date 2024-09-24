@@ -165,6 +165,7 @@
             this.tcListaArquivos.SelectedIndex = 0;
             this.tcListaArquivos.Size = new System.Drawing.Size(334, 278);
             this.tcListaArquivos.TabIndex = 8;
+            this.tcListaArquivos.SelectedIndexChanged += new System.EventHandler(this.tcListaArquivos_SelectedIndexChanged);
             // 
             // tbpDowwnload
             // 
