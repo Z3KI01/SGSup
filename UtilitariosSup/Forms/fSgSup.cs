@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using FluentFTP;
 using static System.Net.Mime.MediaTypeNames;
+using UtilitariosSup.Forms;
 
 
 namespace UtilitariosSup
@@ -106,8 +107,9 @@ namespace UtilitariosSup
             public string Url { get; set; }
         }
 
-        public string dirPadraoFtp { get; set; } = "/dados/sgbr.com.br/interno/arquivos/";
+        public string dirPadraoFtp = "/dados/sgbr.com.br/interno/arquivos/";
         public string sitema = "SGBr Sistemas";
+        public bool logou = false;
 
         public fUtilitarios()
         {
@@ -177,6 +179,11 @@ namespace UtilitariosSup
                         IniciarDownloadFtp();
                 }
             }
+
+            if(e.KeyCode == Keys.F6)
+            {
+                btnExcluir.PerformClick();
+            }
         }
 
         private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
@@ -201,7 +208,8 @@ namespace UtilitariosSup
         private async void LoadDownloadItemsAsync()
         {
             btnDownload.Enabled = false;
-            //btnUpload.Enabled = false;
+            btnUpload.Enabled = false;
+            btnExcluir.Enabled = false;
             TbPesquisar.Enabled = false;
             pbButtonPesquisar.Enabled = false;
             listBoxDownload.Enabled = false;
@@ -574,19 +582,23 @@ namespace UtilitariosSup
 
         private void tcListaArquivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcListaArquivos.SelectedIndex == 1)
+            if (tcListaArquivos.SelectedIndex == 1 && logou != true)
             {
-                //using (FLogin login = new FLogin())
-                //{
-                //    login.StartPosition = FormStartPosition.Manual;
-                //    login.Location = new Point(
-                //        this.Location.X + (this.Width - login.Width) / 2,
-                //        this.Location.Y + (this.Height - login.Height) / 2
-                //    );
+                using (FLogin login = new FLogin())
+                {
+                    login.StartPosition = FormStartPosition.Manual;
+                    login.Location = new Point(
+                        this.Location.X + (this.Width - login.Width) / 2,
+                        this.Location.Y + (this.Height - login.Height) / 2
+                    );
 
-                //    login.ShowDialog();
-                //}
-
+                    if (login.ShowDialog() == DialogResult.OK)
+                    {
+                        logou = true;
+                    }
+                }
+                btnUpload.Enabled = true;
+                btnExcluir.Enabled = true;
                 carregarListaFTP(dirPadraoFtp);
             }
         }

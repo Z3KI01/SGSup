@@ -73,6 +73,16 @@ namespace UtilitariosSup.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap libsenhaMaster {
+            get {
+                object obj = ResourceManager.GetObject("libsenhaMaster", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_master_220x48px {
             get {
                 object obj = ResourceManager.GetObject("logo-master-220x48px", resourceCulture);

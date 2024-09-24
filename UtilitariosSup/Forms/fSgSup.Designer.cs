@@ -159,7 +159,7 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(39, 30);
             this.btnExcluir.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnExcluir, "Upload F9");
+            this.toolTip1.SetToolTip(this.btnExcluir, "Excluir F6");
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
