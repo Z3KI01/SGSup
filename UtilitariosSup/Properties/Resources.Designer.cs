@@ -63,6 +63,16 @@ namespace UtilitariosSup.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnexcluir {
+            get {
+                object obj = ResourceManager.GetObject("btnexcluir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_master_220x48px {
             get {
                 object obj = ResourceManager.GetObject("logo-master-220x48px", resourceCulture);
@@ -96,6 +106,16 @@ namespace UtilitariosSup.Properties {
         internal static System.Drawing.Bitmap lupa_pequena1 {
             get {
                 object obj = ResourceManager.GetObject("lupa-pequena1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menos {
+            get {
+                object obj = ResourceManager.GetObject("menos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

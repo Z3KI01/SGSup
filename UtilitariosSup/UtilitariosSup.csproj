@@ -124,25 +124,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjudantedeEstilo.cs" />
-    <Compile Include="Floading.cs">
+    <Compile Include="Classes\AjudantedeEstilo.cs" />
+    <Compile Include="Forms\Floading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Floading.Designer.cs">
+    <Compile Include="Forms\Floading.Designer.cs">
       <DependentUpon>Floading.cs</DependentUpon>
     </Compile>
-    <Compile Include="fSgSup.cs">
+    <Compile Include="Forms\fSgSup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fSgSup.Designer.cs">
+    <Compile Include="Forms\fSgSup.Designer.cs">
       <DependentUpon>fSgSup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Floading.resx">
+    <EmbeddedResource Include="Forms\Floading.resx">
       <DependentUpon>Floading.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fSgSup.resx">
+    <EmbeddedResource Include="Forms\fSgSup.resx">
       <DependentUpon>fSgSup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -180,6 +180,8 @@
     <None Include="Resources\lupa-pequena.png" />
     <None Include="Resources\setaabaixo.png" />
     <None Include="Resources\setacima.png" />
+    <None Include="Resources\btnexcluir.png" />
+    <None Include="Resources\menos.png" />
     <Content Include="sgSup-removebg-preview-_1_.ico" />
     <Content Include="SGSUPIcone.ico" />
   </ItemGroup>
