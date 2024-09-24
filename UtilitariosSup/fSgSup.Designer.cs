@@ -198,11 +198,12 @@
             this.listBoxUpload.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listBoxUpload.IntegralHeight = false;
             this.listBoxUpload.ItemHeight = 16;
-            this.listBoxUpload.Location = new System.Drawing.Point(-2, 0);
+            this.listBoxUpload.Location = new System.Drawing.Point(-4, 4);
             this.listBoxUpload.Name = "listBoxUpload";
             this.listBoxUpload.Size = new System.Drawing.Size(330, 252);
             this.listBoxUpload.Sorted = true;
             this.listBoxUpload.TabIndex = 1;
+            this.listBoxUpload.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseDoubleClick);
             // 
             // fUtilitarios
             // 
@@ -225,6 +226,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SGBr - Utilitário para download de arquivos";
             this.Load += new System.EventHandler(this.fUtilitarios_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FUtilitarios_KeyDown);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.fUtilitarios_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pBSgMaster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbButtonPesquisar)).EndInit();

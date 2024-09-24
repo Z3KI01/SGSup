@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\ajudantedeestilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\ajudantedeestilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -45,11 +49,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\packages.config",
               "RelativeDocumentMoniker": "UtilitariosSup\\packages.config",
@@ -62,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Floading.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Floading.cs",
@@ -75,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Resources.resx",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "UtilitariosSup\\Properties\\Resources.resx",
@@ -84,20 +88,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAUwIQAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
               "WhenOpened": "2024-07-09T00:50:57.831Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fSgSup.cs",
-              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs",
-              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
-              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs",
-              "RelativeToolTip": "UtilitariosSup\\fSgSup.cs",
-              "ViewState": "AQIAAIMCAAAAAAAAAAD4v5wCAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T16:24:55.711Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -131,7 +121,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fSgSup.cs",
+              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs",
+              "RelativeToolTip": "UtilitariosSup\\fSgSup.cs",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAYwBQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T16:24:55.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AjudantedeEstilo.cs",
+              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\AjudantedeEstilo.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\AjudantedeEstilo.cs",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\AjudantedeEstilo.cs",
+              "RelativeToolTip": "UtilitariosSup\\AjudantedeEstilo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:07:36.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "fSgSup.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.cs",
@@ -143,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "fSgSup.Designer.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\fSgSup.Designer.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\fSgSup.Designer.cs",
@@ -156,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Floading.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Floading.cs",
@@ -167,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Program.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Program.cs",
@@ -179,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Form1.resx",
               "DocumentMoniker": "C:\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx",
               "RelativeDocumentMoniker": "..\\..\\Users\\ezequ\\OneDrive\\\u00C1rea de Trabalho\\UtilitariosSup\\UtilitariosSup\\Form1.resx",

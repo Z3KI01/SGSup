@@ -11,6 +11,7 @@ using System.Web.WebSockets;
 using System.Windows.Forms;
 using System.Diagnostics;
 using FluentFTP;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace UtilitariosSup
@@ -142,6 +143,37 @@ namespace UtilitariosSup
                 TbPesquisar.Focus();
                 TbPesquisar.ForeColor = Color.Black;
             }
+
+            if(e.KeyCode == Keys.F8)
+            {
+                if(tcListaArquivos.SelectedIndex == 0)
+                {
+                    if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
+                    {
+                        IniciarDownload();
+                    }
+                    else
+                    {
+                        if (listBoxDownload.Items.Count > 0)
+                        {
+                            MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6);
+                            AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                            listBoxDownload.SelectedIndex = 0;
+                            listBoxDownload.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("NENHUM ARQUIVO DISPONÍVEL PARA DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                else
+                {
+                    if(listBoxUpload.SelectedIndex != -1)
+                        IniciarDownloadFtp();
+                }
+            }
         }
 
         private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
@@ -256,21 +288,14 @@ namespace UtilitariosSup
 
                 if (listBoxDownload.SelectedIndex != -1)
                 {
-                    lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                    lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
-                    TbPesquisar.Font = new Font(TbPesquisar.Font.FontFamily, 12, FontStyle.Bold);
-                    TbPesquisar.ForeColor = Color.DarkGray;
-                    TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                    TbPesquisar.Text = "BUSCAR (F2)";
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6);
+                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)",FontStyle.Bold,Color.DarkGray);
                 }
                 else
                 {
-                    lblAviso.Font = new Font(lblAviso.Font.FontFamily, 7, FontStyle.Bold);
-                    lblAviso.Text = "ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!";
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
                     TbPesquisar.Clear();
-                    TbPesquisar.ForeColor = Color.Black;
-                    TbPesquisar.TextAlign = HorizontalAlignment.Left;
-                    TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
                     TbPesquisar.Focus();
                 }
 
@@ -293,21 +318,14 @@ namespace UtilitariosSup
 
             if (listBoxDownload.SelectedIndex != -1)
             {
-                lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
-                TbPesquisar.Font = new Font(TbPesquisar.Font.FontFamily, 12, FontStyle.Bold);
-                TbPesquisar.ForeColor = Color.DarkGray;
-                TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                TbPesquisar.Text = "BUSCAR (F2)";
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
             else
             {
-                lblAviso.Font = new Font(lblAviso.Font.FontFamily, 7, FontStyle.Bold);
-                lblAviso.Text = "ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!";
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
                 TbPesquisar.Clear();
-                TbPesquisar.ForeColor = Color.Black;
-                TbPesquisar.TextAlign = HorizontalAlignment.Left;
-                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
                 TbPesquisar.Focus();
             }
         }
@@ -357,10 +375,7 @@ namespace UtilitariosSup
                 }
 
                 listBoxDownload.Focus();
-                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                TbPesquisar.ForeColor = Color.DarkGray;
-                TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                TbPesquisar.Text = "BUSCAR (F2)";
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
         }
 
@@ -375,10 +390,7 @@ namespace UtilitariosSup
                 }
 
                 listBoxDownload.Focus();
-                TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                TbPesquisar.ForeColor = Color.DarkGray;
-                TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                TbPesquisar.Text = "BUSCAR (F2)";
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
         }
 
@@ -418,40 +430,6 @@ namespace UtilitariosSup
             listBoxDownload.SelectedIndex = indiceSelecionadoAnterior;
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.F8)
-            {
-                if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
-                {
-                    IniciarDownload();
-                }
-                else
-                {
-                    if (listBoxDownload.Items.Count > 0)
-                    {
-                        MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                        lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
-                        TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                        TbPesquisar.ForeColor = Color.DarkGray;
-                        TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                        TbPesquisar.Text = "BUSCAR (F2)";
-                        listBoxDownload.SelectedIndex = 0;
-                        listBoxDownload.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("NENHUM ITEM DISPONÍVEL PARA DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                return true;
-            }
-
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-
         private void BtnDownload_Click(object sender, EventArgs e)
         {
             {
@@ -467,12 +445,8 @@ namespace UtilitariosSup
                     if (listBoxDownload.Items.Count > 0)
                     {
                         MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                        lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
-                        TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                        TbPesquisar.ForeColor = Color.DarkGray;
-                        TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                        TbPesquisar.Text = "BUSCAR (F2)";
+                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6);
+                        AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                         listBoxDownload.SelectedIndex = 0;
                         listBoxDownload.Focus();
                     }
@@ -496,8 +470,8 @@ namespace UtilitariosSup
 
                     floading.Show();
 
-                    lblAviso.Font = new Font(lblAviso.Font.FontFamily, 7, FontStyle.Bold);
-                    lblAviso.Text = "      AGUARDE, FINALIZANDO O DOWNLOAD ...";
+                   AjudantedeEstilo.ReformulaLblAviso(lblAviso, "      AGUARDE, FINALIZANDO O DOWNLOAD ...", 7);
+
                 }));
                 floading.Refresh();
 
@@ -541,8 +515,7 @@ namespace UtilitariosSup
                 Invoke(new Action(() =>
                 {
                     floading.Close();
-                    lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                    lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6);
                 }));
             }
         }
@@ -613,6 +586,10 @@ namespace UtilitariosSup
 
                 carregarListaFTP(dirPadraoFtp);
             }
+        }
+        private void listBoxUpload_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            IniciarDownloadFtp();
         }
         private void carregarListaFTP(string directoryPath)
         {
@@ -732,6 +709,7 @@ namespace UtilitariosSup
             return $"{filterDescription} (*{fileExtension})|*{fileExtension}";
         }
 
+       
         // By Zequi :)
 
     }

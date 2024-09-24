@@ -124,6 +124,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjudantedeEstilo.cs" />
     <Compile Include="Floading.cs">
       <SubType>Form</SubType>
     </Compile>
