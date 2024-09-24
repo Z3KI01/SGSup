@@ -105,6 +105,8 @@ namespace UtilitariosSup
             public string Url { get; set; }
         }
 
+        public string dirPadraoFtp { get; set; } = "/dados/sgbr.com.br/interno/arquivos/";
+
         public fUtilitarios()
         {
             InitializeComponent();
@@ -591,7 +593,7 @@ namespace UtilitariosSup
         private void btnUpload_Click(object sender, EventArgs e)
         {
             IniciarUpload();
-            carregarListaFTP("/dados/sgbr.com.br/interno/arquivos/");
+            carregarListaFTP(dirPadraoFtp);
         }
 
         private void tcListaArquivos_SelectedIndexChanged(object sender, EventArgs e)
@@ -609,8 +611,7 @@ namespace UtilitariosSup
                 //    login.ShowDialog();
                 //}
 
-                carregarListaFTP("/dados/sgbr.com.br/interno/arquivos/");
-
+                carregarListaFTP(dirPadraoFtp);
             }
         }
         private void carregarListaFTP(string directoryPath)
@@ -644,7 +645,7 @@ namespace UtilitariosSup
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = Path.GetFileName(filePath);
-                string remotePath = "/dados/sgbr.com.br/interno/arquivos/" + fileName;
+                string remotePath = dirPadraoFtp + fileName;
 
                 using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
                 {
@@ -658,7 +659,7 @@ namespace UtilitariosSup
         {
             if (listBoxUpload.SelectedIndex != -1)
             {
-                string arquivoSelecionadoFtp = listBoxUpload.SelectedItem.ToString();
+                string arquivoSelecionadoFtp = dirPadraoFtp + listBoxUpload.SelectedItem.ToString();
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.InitialDirectory = @"C:\SGBR\Master\Utilitarios";
@@ -686,7 +687,6 @@ namespace UtilitariosSup
             }
         }
         #endregion
-
         private string GetFileFilter(string arquivoSelecionado)
         {
             string fileExtension = System.IO.Path.GetExtension(arquivoSelecionado).ToLower();
