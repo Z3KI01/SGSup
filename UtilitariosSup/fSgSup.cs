@@ -28,7 +28,9 @@ namespace UtilitariosSup
 
         private void fUtilitarios_Load(object sender, EventArgs e)
         {
-            BtnDownload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, BtnDownload.Width, BtnDownload.Height, 7, 7));
+            btnDownload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
+            btnUpload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
+
 
             TbPesquisar.TextChanged += TbPesquisar_TextChanged;
             TbPesquisar.LostFocus += TbPesquisar_LostFocus;
@@ -50,12 +52,12 @@ namespace UtilitariosSup
 
         private async void LoadDownloadItemsAsync()
         {
-            BtnDownload.Enabled = false;
+            btnDownload.Enabled = false;
             TbPesquisar.Enabled = false;
             pbButtonPesquisar.Enabled = false;
-            listBoxArquivos.Enabled = false;
-            listBoxArquivos.Items.Clear();
-            listBoxArquivos.Items.Add("CARREGANDO...");
+            listBoxDownload.Enabled = false;
+            listBoxDownload.Items.Clear();
+            listBoxDownload.Items.Add("CARREGANDO...");
 
             try
             {
@@ -76,10 +78,10 @@ namespace UtilitariosSup
                     var downloadResponse = JsonConvert.DeserializeObject<DownloadResponse>(jsonResponse);
                     _downloadItems = downloadResponse.Data;
 
-                    BtnDownload.Enabled = true;
+                    btnDownload.Enabled = true;
                     TbPesquisar.Enabled = true;
                     pbButtonPesquisar.Enabled = true;
-                    listBoxArquivos.Enabled = true;
+                    listBoxDownload.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -90,20 +92,20 @@ namespace UtilitariosSup
             {
                 Invoke(new Action(() =>
                 {
-                    listBoxArquivos.Items.Clear();
+                    listBoxDownload.Items.Clear();
                     if (_downloadItems.Count > 0)
                     {
                         foreach (var item in _downloadItems)
                         {
                             if (!string.IsNullOrEmpty(item.Nome))
                             {
-                                listBoxArquivos.Items.Add(item.Nome);
+                                listBoxDownload.Items.Add(item.Nome);
                             }
                         }
                     }
                     else
                     {
-                        listBoxArquivos.Items.Add("NENHUM ITEM ENCONTRADO.");
+                        listBoxDownload.Items.Add("NENHUM ITEM ENCONTRADO.");
                     }
                 }));
             }
@@ -115,7 +117,7 @@ namespace UtilitariosSup
             if (e.KeyCode == Keys.F2)
             {
                 TbPesquisar.Clear();
-                listBoxArquivos.ClearSelected();
+                listBoxDownload.ClearSelected();
                 TbPesquisar.TextAlign = HorizontalAlignment.Left;
                 TbPesquisar.Focus();
                 TbPesquisar.ForeColor = Color.Black;
@@ -133,7 +135,7 @@ namespace UtilitariosSup
         private void TbPesquisar_MouseDown(object sender, MouseEventArgs e)
         {
             TbPesquisar.Clear();
-            listBoxArquivos.ClearSelected();
+            listBoxDownload.ClearSelected();
             TbPesquisar.Font = new Font(TbPesquisar.Font.FontFamily, 12, FontStyle.Bold);
             TbPesquisar.ForeColor = Color.Black;
             TbPesquisar.TextAlign = HorizontalAlignment.Left;
@@ -148,7 +150,7 @@ namespace UtilitariosSup
                 e.SuppressKeyPress = true;
                 Pesquisar();
 
-                if (listBoxArquivos.SelectedIndex != -1)
+                if (listBoxDownload.SelectedIndex != -1)
                 {
                     lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
                     lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
@@ -169,9 +171,9 @@ namespace UtilitariosSup
                 }
 
                 
-                if (listBoxArquivos.SelectedIndex != -1)
+                if (listBoxDownload.SelectedIndex != -1)
                 {
-                    var selectedItem = _downloadItems[listBoxArquivos.SelectedIndex];
+                    var selectedItem = _downloadItems[listBoxDownload.SelectedIndex];
                     TbPesquisar.Tag = selectedItem;
                 }
                 else
@@ -185,7 +187,7 @@ namespace UtilitariosSup
         {
             Pesquisar();
 
-            if (listBoxArquivos.SelectedIndex != -1)
+            if (listBoxDownload.SelectedIndex != -1)
             {
                 lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
                 lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
@@ -211,9 +213,9 @@ namespace UtilitariosSup
         {
             string textoPesquisa = TbPesquisar.Text.Trim().ToLower();
 
-            int indiceSelecionadoAnterior = listBoxArquivos.SelectedIndex;
+            int indiceSelecionadoAnterior = listBoxDownload.SelectedIndex;
 
-            listBoxArquivos.ClearSelected();
+            listBoxDownload.ClearSelected();
 
             if (string.IsNullOrEmpty(textoPesquisa))
             {
@@ -222,16 +224,16 @@ namespace UtilitariosSup
 
             if (!string.IsNullOrEmpty(textoPesquisa))
             {
-                for (int i = 0; i < listBoxArquivos.Items.Count; i++)
+                for (int i = 0; i < listBoxDownload.Items.Count; i++)
                 {
-                    string item = listBoxArquivos.Items[i].ToString().ToLower();
+                    string item = listBoxDownload.Items[i].ToString().ToLower();
                     if (item.Contains(textoPesquisa))
                     {
-                        listBoxArquivos.SelectedIndex = i;
-                        listBoxArquivos.TopIndex = i;
-                        listBoxArquivos.Focus();
+                        listBoxDownload.SelectedIndex = i;
+                        listBoxDownload.TopIndex = i;
+                        listBoxDownload.Focus();
 
-                        var selectedItem = _downloadItems[listBoxArquivos.SelectedIndex];
+                        var selectedItem = _downloadItems[listBoxDownload.SelectedIndex];
                         TbPesquisar.Tag = selectedItem;
 
 
@@ -240,7 +242,7 @@ namespace UtilitariosSup
                 }
             }
 
-            listBoxArquivos.SelectedIndex = indiceSelecionadoAnterior;
+            listBoxDownload.SelectedIndex = indiceSelecionadoAnterior;
         }
 
 
@@ -250,31 +252,31 @@ namespace UtilitariosSup
         {
             string filtro = TbPesquisar.Text.ToUpper();
 
-            int index = listBoxArquivos.FindString(filtro);
+            int index = listBoxDownload.FindString(filtro);
         }
 
         private void TbPesquisar_LostFocus(object sender, EventArgs e)
         {
             string filtro = TbPesquisar.Text.ToLower();
 
-            int index = listBoxArquivos.FindStringExact(filtro);
+            int index = listBoxDownload.FindStringExact(filtro);
 
             if (index != ListBox.NoMatches)
             {
-                listBoxArquivos.SelectedIndex = index;
-                listBoxArquivos.TopIndex = index;
+                listBoxDownload.SelectedIndex = index;
+                listBoxDownload.TopIndex = index;
             }
 
         }
         private void BtnDownload_Click(object sender, EventArgs e)
         {
-            if (listBoxArquivos.SelectedIndex != -1 || TbPesquisar.Tag != null)
+            if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
             {
                 IniciarDownload();
             }
             else
             {
-                if (listBoxArquivos.Items.Count > 0)
+                if (listBoxDownload.Items.Count > 0)
                 {
                     MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
@@ -283,8 +285,8 @@ namespace UtilitariosSup
                     TbPesquisar.ForeColor = Color.DarkGray;
                     TbPesquisar.TextAlign = HorizontalAlignment.Center;
                     TbPesquisar.Text = "BUSCAR (F2)";
-                    listBoxArquivos.SelectedIndex = 0;
-                    listBoxArquivos.Focus();
+                    listBoxDownload.SelectedIndex = 0;
+                    listBoxDownload.Focus();
                 }
             }
         }
@@ -293,13 +295,13 @@ namespace UtilitariosSup
         {
             if (keyData == Keys.F8)
             {
-                if (listBoxArquivos.SelectedIndex != -1 || TbPesquisar.Tag != null)
+                if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
                 {
                     IniciarDownload();
                 }
                 else
                 {
-                    if (listBoxArquivos.Items.Count > 0)
+                    if (listBoxDownload.Items.Count > 0)
                     {
                         MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
@@ -308,8 +310,8 @@ namespace UtilitariosSup
                         TbPesquisar.ForeColor = Color.DarkGray;
                         TbPesquisar.TextAlign = HorizontalAlignment.Center;
                         TbPesquisar.Text = "BUSCAR (F2)";
-                        listBoxArquivos.SelectedIndex = 0;
-                        listBoxArquivos.Focus();
+                        listBoxDownload.SelectedIndex = 0;
+                        listBoxDownload.Focus();
                     }
                     else
                     {
@@ -410,10 +412,10 @@ namespace UtilitariosSup
             DownloadItem selectedItem = null;
             int selectedIndex = -1;
 
-            if (listBoxArquivos.SelectedIndex != -1)
+            if (listBoxDownload.SelectedIndex != -1)
             {
-                selectedItem = _downloadItems[listBoxArquivos.SelectedIndex];
-                selectedIndex = listBoxArquivos.SelectedIndex;
+                selectedItem = _downloadItems[listBoxDownload.SelectedIndex];
+                selectedIndex = listBoxDownload.SelectedIndex;
             }
             else if (TbPesquisar.Tag != null)
             {
@@ -421,7 +423,7 @@ namespace UtilitariosSup
                 selectedIndex = _downloadItems.IndexOf(selectedItem);
                 if (selectedIndex != -1)
                 {
-                    listBoxArquivos.SelectedIndex = selectedIndex;
+                    listBoxDownload.SelectedIndex = selectedIndex;
                 }
             }
 
@@ -499,14 +501,14 @@ namespace UtilitariosSup
 
         private void fUtilitarios_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left && !listBoxArquivos.ClientRectangle.Contains(listBoxArquivos.PointToClient(e.Location)) && listBoxArquivos.Items.Count > 0)
+            if (e.Button == MouseButtons.Left && !listBoxDownload.ClientRectangle.Contains(listBoxDownload.PointToClient(e.Location)) && listBoxDownload.Items.Count > 0)
             {
-                if (listBoxArquivos.SelectedIndex == -1)
+                if (listBoxDownload.SelectedIndex == -1)
                 {
-                    listBoxArquivos.SelectedIndex = 0;
+                    listBoxDownload.SelectedIndex = 0;
                 }
 
-                listBoxArquivos.Focus();
+                listBoxDownload.Focus();
                 TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
                 TbPesquisar.ForeColor = Color.DarkGray;
                 TbPesquisar.TextAlign = HorizontalAlignment.Center;
@@ -516,14 +518,14 @@ namespace UtilitariosSup
 
         private void pBSgMaster_Click(object sender, EventArgs e)
         {
-            if (listBoxArquivos.Items.Count > 0)
+            if (listBoxDownload.Items.Count > 0)
             {
-                if (listBoxArquivos.SelectedIndex == -1)
+                if (listBoxDownload.SelectedIndex == -1)
                 {
-                    listBoxArquivos.SelectedIndex = 0;
+                    listBoxDownload.SelectedIndex = 0;
                 }
 
-                listBoxArquivos.Focus();
+                listBoxDownload.Focus();
                 TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
                 TbPesquisar.ForeColor = Color.DarkGray;
                 TbPesquisar.TextAlign = HorizontalAlignment.Center;
@@ -534,14 +536,14 @@ namespace UtilitariosSup
 
         private void lblAviso_MouseClick(object sender, MouseEventArgs e)
         {
-            if (listBoxArquivos.Items.Count > 0)
+            if (listBoxDownload.Items.Count > 0)
             {
-                if (listBoxArquivos.SelectedIndex == -1)
+                if (listBoxDownload.SelectedIndex == -1)
                 {
-                    listBoxArquivos.SelectedIndex = 0;
+                    listBoxDownload.SelectedIndex = 0;
                 }
 
-                listBoxArquivos.Focus();
+                listBoxDownload.Focus();
                 TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
                 TbPesquisar.ForeColor = Color.DarkGray;
                 TbPesquisar.TextAlign = HorizontalAlignment.Center;
