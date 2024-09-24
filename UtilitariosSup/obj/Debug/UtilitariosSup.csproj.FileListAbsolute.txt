@@ -99,3 +99,5 @@ C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.CoreCompileInpu
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\Utilitar.454F9362.Up2Date
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\SG SUP.exe
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\SG SUP.pdb
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\FluentFTP.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Debug\FluentFTP.xml

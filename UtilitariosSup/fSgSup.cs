@@ -2,9 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Web.WebSockets;
 using System.Windows.Forms;
+using System.Diagnostics;
+using FluentFTP;
+
 
 namespace UtilitariosSup
 {
@@ -26,10 +33,12 @@ namespace UtilitariosSup
             int nLeft, int nTop, int nRight, int nBottom, int nWidhtEllipse, int nHeightEllipse
         );
 
+        private FtpClient ftpClient;
+
         private void fUtilitarios_Load(object sender, EventArgs e)
         {
             btnDownload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
-            btnUpload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
+            btnUpload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnUpload.Width, btnUpload.Height, 7, 7));
 
 
             TbPesquisar.TextChanged += TbPesquisar_TextChanged;
@@ -45,14 +54,17 @@ namespace UtilitariosSup
 
             this.MouseClick += fUtilitarios_MouseClick;
             this.pBSgMaster.Click += pBSgMaster_Click;
+
+            ftpClient = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86");
+            ftpClient.Connect();
         }
 
         private List<DownloadItem> _downloadItems = new List<DownloadItem>();
 
-
         private async void LoadDownloadItemsAsync()
         {
             btnDownload.Enabled = false;
+            //btnUpload.Enabled = false;
             TbPesquisar.Enabled = false;
             pbButtonPesquisar.Enabled = false;
             listBoxDownload.Enabled = false;
@@ -170,7 +182,7 @@ namespace UtilitariosSup
                     TbPesquisar.Focus();
                 }
 
-                
+
                 if (listBoxDownload.SelectedIndex != -1)
                 {
                     var selectedItem = _downloadItems[listBoxDownload.SelectedIndex];
@@ -270,23 +282,25 @@ namespace UtilitariosSup
         }
         private void BtnDownload_Click(object sender, EventArgs e)
         {
-            if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
             {
-                IniciarDownload();
-            }
-            else
-            {
-                if (listBoxDownload.Items.Count > 0)
+                if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
                 {
-                    MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
-                    lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
-                    TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
-                    TbPesquisar.ForeColor = Color.DarkGray;
-                    TbPesquisar.TextAlign = HorizontalAlignment.Center;
-                    TbPesquisar.Text = "BUSCAR (F2)";
-                    listBoxDownload.SelectedIndex = 0;
-                    listBoxDownload.Focus();
+                    IniciarDownload();
+                }
+                else
+                {
+                    if (listBoxDownload.Items.Count > 0)
+                    {
+                        MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        lblAviso.Font = new Font(lblAviso.Font.FontFamily, 6, FontStyle.Bold);
+                        lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
+                        TbPesquisar.Font = new Font(lblAviso.Font.FontFamily, 12, FontStyle.Bold);
+                        TbPesquisar.ForeColor = Color.DarkGray;
+                        TbPesquisar.TextAlign = HorizontalAlignment.Center;
+                        TbPesquisar.Text = "BUSCAR (F2)";
+                        listBoxDownload.SelectedIndex = 0;
+                        listBoxDownload.Focus();
+                    }
                 }
             }
         }
@@ -406,6 +420,34 @@ namespace UtilitariosSup
 
         // By Zequi :)
 
+        private void IniciarUpload()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Selecione um arquivo para enviar",
+                Filter = "Todos os arquivos (*.*)|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = Path.GetFileName(filePath);
+                string remotePath = "/dados/sgbr.com.br/interno/arquivos/" + fileName;
+
+                using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
+                {
+                    ftp.Connect();
+
+                    ftp.UploadFile(filePath, remotePath);
+                }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            IniciarUpload();
+            carregarListaFTP("/dados/sgbr.com.br/interno/arquivos/");
+        }
 
         private void IniciarDownload()
         {
@@ -444,8 +486,6 @@ namespace UtilitariosSup
                 MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
 
         private string GetFileFilter(string url)
         {
@@ -595,11 +635,7 @@ namespace UtilitariosSup
                 e.DrawFocusRectangle();
             }
 
-            protected override void OnGotFocus(EventArgs e)
-            {
-                base.OnGotFocus(e);
-                Invalidate();
-            }
+
 
             protected override void OnLostFocus(EventArgs e)
             {
@@ -614,6 +650,42 @@ namespace UtilitariosSup
             }
         }
 
-        
+        private void tabControlItensFixos_Click(object sender, EventArgs e)
+        {
+            if (tcListaArquivos.SelectedIndex == 1)
+            {
+                //using (FLogin login = new FLogin())
+                //{
+                //    login.StartPosition = FormStartPosition.Manual;
+                //    login.Location = new Point(
+                //        this.Location.X + (this.Width - login.Width) / 2,
+                //        this.Location.Y + (this.Height - login.Height) / 2
+                //    );
+
+                //    login.ShowDialog();
+                //}
+
+                btnUpload.Enabled = true;
+            }
+        }
+
+        private void carregarListaFTP(string directoryPath)
+        {
+            try
+            {
+                var items = ftpClient.GetListing(directoryPath, FtpListOption.AllFiles);
+
+                listBoxUpload.Items.Clear();
+
+                foreach (var item in items)
+                {
+                    listBoxUpload.Items.Add(item.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao listar arquivos do FTP : {ex.Message}");
+            }
+        }
     }
 }

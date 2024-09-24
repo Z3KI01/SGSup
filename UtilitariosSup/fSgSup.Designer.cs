@@ -153,6 +153,7 @@
             this.btnUpload.Text = "     F9";
             this.toolTip1.SetToolTip(this.btnUpload, "Upload F9");
             this.btnUpload.UseVisualStyleBackColor = false;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // tcListaArquivos
             // 
