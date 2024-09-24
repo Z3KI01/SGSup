@@ -71,11 +71,11 @@
             // 
             this.lblAviso.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblAviso.AutoSize = true;
-            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(30, 403);
+            this.lblAviso.Location = new System.Drawing.Point(3, 401);
             this.lblAviso.Name = "lblAviso";
-            this.lblAviso.Size = new System.Drawing.Size(303, 9);
+            this.lblAviso.Size = new System.Drawing.Size(351, 12);
             this.lblAviso.TabIndex = 3;
             this.lblAviso.Text = "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD";
             this.lblAviso.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblAviso_MouseClick);

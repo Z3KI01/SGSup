@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Projetos\\SGSup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,11 @@
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\fsgsup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -34,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FLogin.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\FLogin.cs",
@@ -80,7 +84,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "fSgSup.Designer.cs",
+              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.Designer.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.Designer.cs",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.Designer.cs",
+              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMBAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T19:17:34.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FLogin.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\FLogin.cs",
@@ -104,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Floading.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\Floading.cs",
@@ -117,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Floading.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\Floading.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\Floading.cs",
@@ -135,7 +152,7 @@
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
               "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
               "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs",
-              "ViewState": "AQIAADsCAAAAAAAAAAAqwF4CAAA1AAAA",
+              "ViewState": "AQIAAEQCAAAAAAAAAAD4vy0BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T16:24:55.711Z",
               "EditorCaption": ""
