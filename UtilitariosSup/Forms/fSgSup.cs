@@ -111,6 +111,7 @@ namespace UtilitariosSup
         public string sitema = "SGBr Sistemas";
         public bool logou = false;
         public CenteredListBox listBoxSelecionada;
+        public TimeSpan tempoExpiracao = TimeSpan.FromHours(24);
 
         public fUtilitarios()
         {
@@ -137,6 +138,7 @@ namespace UtilitariosSup
             this.KeyDown += FUtilitarios_KeyDown;
             pbButtonPesquisar.MouseClick += pbButtonPesquisar_MouseClick;
             listBoxSelecionada = listBoxDownload;
+            ApagarArquivoFtpTimer();
         }
 
 
@@ -166,7 +168,7 @@ namespace UtilitariosSup
                     {
                         MessageBox.Show("Selecione um arquivo antes de iniciar o download.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 7);
-                        AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                        AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                         listBoxSelecionada.SelectedIndex = 0;
                         listBoxSelecionada.Focus();
                     }
@@ -193,7 +195,7 @@ namespace UtilitariosSup
                     listBoxSelecionada.Focus();
                 }
 
-                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
         }
 
@@ -267,14 +269,15 @@ namespace UtilitariosSup
 
         private void listBoxArquivos_MouseClick(object sender, MouseEventArgs e)
         {
-            AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+            AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+            AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
         }
 
         private void TbPesquisar_MouseDown(object sender, MouseEventArgs e)
         {
             TbPesquisar.Clear();
             listBoxSelecionada.ClearSelected();
-            AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+            AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
         }
 
 
@@ -290,13 +293,13 @@ namespace UtilitariosSup
                 if (listBoxSelecionada.SelectedIndex != -1)
                 {
                     AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 7);
-                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                 }
                 else
                 {
-                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "       ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
                     TbPesquisar.Clear();
-                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
+                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
                     TbPesquisar.Focus();
                 }
 
@@ -319,13 +322,13 @@ namespace UtilitariosSup
             if (listBoxSelecionada.SelectedIndex != -1)
             {
                 AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 7);
-                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
             else
             {
-                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "       ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
                 TbPesquisar.Clear();
-                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
                 TbPesquisar.Focus();
             }
         }
@@ -376,7 +379,7 @@ namespace UtilitariosSup
                 }
 
                 listBoxSelecionada.Focus();
-                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
         }
 
@@ -391,7 +394,7 @@ namespace UtilitariosSup
                 }
 
                 listBoxSelecionada.Focus();
-                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
         }
 
@@ -448,7 +451,7 @@ namespace UtilitariosSup
                 {
                     MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 7);
-                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 12, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+                    AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                     listBoxSelecionada.SelectedIndex = 0;
                     listBoxSelecionada.Focus();
                 }
@@ -615,6 +618,11 @@ namespace UtilitariosSup
         {
             IniciarDownloadFtp();
         }
+        private void listBoxUpload_MouseClick(object sender, MouseEventArgs e)
+        {
+            AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
+            AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+        }
         private void carregarListaFTP(string directoryPath)
         {
             try
@@ -718,6 +726,22 @@ namespace UtilitariosSup
             }
         }
 
+        private void ApagarArquivoFtpTimer()
+        {
+            foreach (var item in ftpClient.GetListing(dirPadraoFtp))
+            {
+                if(item.Type == FtpObjectType.File)
+                {
+                    DateTime dataModificao = ftpClient.GetModifiedTime(item.FullName);
+
+                    if(DateTime.Now - dataModificao > tempoExpiracao)
+                    {
+                        ftpClient.DeleteFile(item.FullName);
+                    }
+                }
+            }
+        }
+
         #endregion
         private string GetFileFilter(string arquivoSelecionado)
         {
@@ -763,6 +787,7 @@ namespace UtilitariosSup
 
             return $"{filterDescription} (*{fileExtension})|*{fileExtension}";
         }
+
 
 
         // By Zequi :)

@@ -10,7 +10,7 @@ namespace UtilitariosSup
 {
     public static class AjudantedeEstilo
     {
-        public static void ReformulaLblAviso(Label label, string mensagem, int tamanhoFonte, FontStyle estiloFonte = FontStyle.Bold)
+        public static void ReformulaLblAviso(Label label, string mensagem, float tamanhoFonte, FontStyle estiloFonte = FontStyle.Bold)
         {
             label.Font = new Font(label.Font.FontFamily, tamanhoFonte, estiloFonte);
             label.Text = mensagem;
