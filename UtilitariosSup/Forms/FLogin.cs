@@ -26,6 +26,13 @@ namespace UtilitariosSup.Forms
                 txtLogin.Focus();
                 return;
             }
+            else if(txtLogin.Text != "1")
+            {
+                MessageBox.Show("Login incorreto.", "SGBr Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtLogin.Clear();
+                txtLogin.Focus();
+                return;
+            }
         }
 
         private void txtSenha_Leave(object sender, EventArgs e)

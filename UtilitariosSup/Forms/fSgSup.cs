@@ -594,12 +594,19 @@ namespace UtilitariosSup
 
                     if (login.ShowDialog() == DialogResult.OK)
                     {
+                        btnUpload.Enabled = true;
+                        btnExcluir.Enabled = true;
                         logou = true;
+                        carregarListaFTP(dirPadraoFtp);
+
                     }
-                }
-                btnUpload.Enabled = true;
-                btnExcluir.Enabled = true;
-                carregarListaFTP(dirPadraoFtp);
+                    else
+                    {
+                        btnUpload.Enabled = false;
+                        btnExcluir.Enabled = false;
+                        tcListaArquivos.SelectTab(0);
+                    }
+                }   
             }
         }
 
