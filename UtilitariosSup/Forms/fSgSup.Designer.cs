@@ -95,6 +95,8 @@
             this.TbPesquisar.TabIndex = 5;
             this.TbPesquisar.Text = "BUSCAR (F2)";
             this.TbPesquisar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TbPesquisar.TextChanged += new System.EventHandler(this.TbPesquisar_TextChanged);
+            this.TbPesquisar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbPesquisar_KeyDown);
             this.TbPesquisar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TbPesquisar_MouseDown);
             // 
             // tcListaArquivos
@@ -226,9 +228,9 @@
             // PBLoading
             // 
             this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PBLoading.Location = new System.Drawing.Point(5, 430);
+            this.PBLoading.Location = new System.Drawing.Point(5, 425);
             this.PBLoading.Name = "PBLoading";
-            this.PBLoading.Size = new System.Drawing.Size(309, 29);
+            this.PBLoading.Size = new System.Drawing.Size(309, 23);
             this.PBLoading.TabIndex = 10;
             // 
             // lblPercentual
@@ -236,7 +238,7 @@
             this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblPercentual.AutoSize = true;
             this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPercentual.Location = new System.Drawing.Point(316, 436);
+            this.lblPercentual.Location = new System.Drawing.Point(316, 429);
             this.lblPercentual.Name = "lblPercentual";
             this.lblPercentual.Size = new System.Drawing.Size(27, 15);
             this.lblPercentual.TabIndex = 11;
@@ -246,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 474);
+            this.ClientSize = new System.Drawing.Size(358, 456);
             this.Controls.Add(this.lblPercentual);
             this.Controls.Add(this.PBLoading);
             this.Controls.Add(this.btnExcluir);

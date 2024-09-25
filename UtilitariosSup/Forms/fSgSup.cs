@@ -119,7 +119,7 @@ namespace UtilitariosSup
 
         public enum FtpOperation
         {
-            Download, 
+            Download,
             Upload
         }
 
@@ -140,13 +140,7 @@ namespace UtilitariosSup
             btnUpload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnUpload.Width, btnUpload.Height, 7, 7));
             btnExcluir.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnExcluir.Width, btnExcluir.Height, 7, 7));
 
-
-
-            TbPesquisar.TextChanged += TbPesquisar_TextChanged;
             TbPesquisar.LostFocus += TbPesquisar_LostFocus;
-            TbPesquisar.KeyDown += TbPesquisar_KeyDown;
-            this.KeyDown += FUtilitarios_KeyDown;
-            pbButtonPesquisar.MouseClick += pbButtonPesquisar_MouseClick;
             listBoxSelecionada = listBoxDownload;
             ApagarArquivoFtpTimer();
             RedimensionarForm(false);
@@ -164,35 +158,19 @@ namespace UtilitariosSup
                 TbPesquisar.ForeColor = Color.Black;
             }
 
-            if (e.KeyCode == Keys.F8)
-            {
-                if (listBoxSelecionada.SelectedIndex != -1 || TbPesquisar.Tag != null)
-                {
-                    if (listBoxSelecionada.Name == "listBoxDownload")
-                        IniciarDownload();
-                    else
-                        IniciarDownloadFtp();
-                }
-                else
-                {
-                    if (listBoxSelecionada.Items.Count > 0)
-                    {
-                        MessageBox.Show("Selecione um arquivo antes de iniciar o download.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
-                        AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
-                        listBoxSelecionada.SelectedIndex = 0;
-                        listBoxSelecionada.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Nenhum arquivo disponível para download.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-
             if (e.KeyCode == Keys.F6)
             {
                 btnExcluir.PerformClick();
+            }
+
+            if (e.KeyCode == Keys.F8)
+            {
+                btnDownload.PerformClick();
+            }
+
+            if (e.KeyCode == Keys.F9)
+            {
+                btnUpload.PerformClick();
             }
         }
 
@@ -301,7 +279,7 @@ namespace UtilitariosSup
 
                 if (listBoxSelecionada.SelectedIndex != -1)
                 {
-                                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                     AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                 }
                 else
@@ -330,12 +308,12 @@ namespace UtilitariosSup
 
             if (listBoxSelecionada.SelectedIndex != -1)
             {
-                            AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                 AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             }
             else
             {
-                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "       ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "       ARQUIVO NÃO ENCONTRADO! TENTE NOVAMENTE!", 7);
                 TbPesquisar.Clear();
                 AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Left, null, FontStyle.Bold, Color.Black);
                 TbPesquisar.Focus();
@@ -447,7 +425,7 @@ namespace UtilitariosSup
 
         private void BtnDownload_Click(object sender, EventArgs e)
         {
-            if (listBoxDownload.SelectedIndex != -1 || TbPesquisar.Tag != null)
+            if (listBoxSelecionada.SelectedIndex != -1 || TbPesquisar.Tag != null)
             {
                 if (tcListaArquivos.SelectedIndex == 0)
                     IniciarDownload();
@@ -458,7 +436,7 @@ namespace UtilitariosSup
             {
                 if (listBoxSelecionada.Items.Count > 0)
                 {
-                    MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Selecione um arquivo antes de iniciar o download", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                     AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                     listBoxSelecionada.SelectedIndex = 0;
@@ -471,9 +449,9 @@ namespace UtilitariosSup
 
         public void SetProgress(int percentual)
         {
-            if(percentual >= 0 && percentual <= 100)
+            if (percentual >= 0 && percentual <= 100)
                 PBLoading.Value = percentual;
-                lblPercentual.Text = percentual.ToString() + "%";
+            lblPercentual.Text = percentual.ToString() + "%";
         }
 
         private async void DownloadFileAsync(string url, string filePath)
@@ -582,7 +560,7 @@ namespace UtilitariosSup
             {
                 PBLoading.Visible = true;
                 lblPercentual.Visible = true;
-                this.Size = new Size(374, 513);
+                this.Size = new Size(374, 495);
             }
             else
             {
@@ -614,7 +592,7 @@ namespace UtilitariosSup
             }
         }
 
-        private async Task <bool> ExibirAvisoLabel()
+        private async Task<bool> ExibirAvisoLabel()
         {
             if (tcListaArquivos.SelectedIndex == 0)
             {
@@ -625,7 +603,7 @@ namespace UtilitariosSup
                 AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                 return false;
             }
-            
+
 
             return true;
         }
@@ -669,7 +647,7 @@ namespace UtilitariosSup
                 }
             }
             else
-            { 
+            {
                 listBoxSelecionada = listBoxDownload;
             }
         }
@@ -749,7 +727,7 @@ namespace UtilitariosSup
             }
         }
 
-        private  async void IniciarDownloadFtp()
+        private async void IniciarDownloadFtp()
         {
             if (listBoxUpload.SelectedIndex != -1)
             {
@@ -783,7 +761,7 @@ namespace UtilitariosSup
             }
         }
 
-        private async Task IniciarTransferenciaFtpComProgressoAsync(string localPath , string remotePath, FtpOperation operacao)
+        private async Task IniciarTransferenciaFtpComProgressoAsync(string localPath, string remotePath, FtpOperation operacao)
         {
             try
             {
@@ -793,18 +771,18 @@ namespace UtilitariosSup
                 Progress<FtpProgress> progress = new Progress<FtpProgress>(p =>
                 {
                     int percentual = (int)p.Progress;
-                    PBLoading.Invoke(new Action (() => SetProgress(percentual)));
+                    PBLoading.Invoke(new Action(() => SetProgress(percentual)));
                 });
 
                 Action<FtpProgress> progressAction = (FtpProgress p) => ((IProgress<FtpProgress>)progress).Report(p);
 
                 await Task.Run(async () =>
                 {
-                    if(operacao == FtpOperation.Download)
+                    if (operacao == FtpOperation.Download)
                     {
                         ftpClient.DownloadFile(localPath, remotePath, FtpLocalExists.Overwrite, FtpVerify.None, progressAction);
                     }
-                    else if(operacao == FtpOperation.Upload)
+                    else if (operacao == FtpOperation.Upload)
                     {
                         using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
                         {
@@ -859,6 +837,8 @@ namespace UtilitariosSup
             else
             {
                 MessageBox.Show("Selecione um arquivo para remover!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                listBoxSelecionada.SelectedIndex = 0;
+                listBoxSelecionada.Focus();
             }
         }
 
@@ -867,11 +847,11 @@ namespace UtilitariosSup
         {
             foreach (var item in ftpClient.GetListing(dirPadraoFtp))
             {
-                if(item.Type == FtpObjectType.File)
+                if (item.Type == FtpObjectType.File)
                 {
                     DateTime dataModificao = ftpClient.GetModifiedTime(item.FullName);
 
-                    if(DateTime.Now - dataModificao > tempoExpiracao)
+                    if (DateTime.Now - dataModificao > tempoExpiracao)
                     {
                         ftpClient.DeleteFile(item.FullName);
                     }
