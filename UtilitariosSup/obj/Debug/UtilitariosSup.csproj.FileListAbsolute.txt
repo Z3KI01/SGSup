@@ -91,7 +91,6 @@ C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Text.Json.xml
 C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Projetos\SGSup\UtilitariosSup\bin\Debug\System.ValueTuple.xml
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.AssemblyReference.cache
-C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Floading.resources
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.fUtilitarios.resources
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Properties.Resources.resources
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.GenerateResource.cache

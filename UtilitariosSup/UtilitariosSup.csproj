@@ -125,12 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AjudantedeEstilo.cs" />
-    <Compile Include="Forms\Floading.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Floading.Designer.cs">
-      <DependentUpon>Floading.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,9 +139,6 @@
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Floading.resx">
-      <DependentUpon>Floading.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
     </EmbeddedResource>

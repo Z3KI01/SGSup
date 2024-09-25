@@ -43,6 +43,8 @@
             this.btnDownload = new System.Windows.Forms.Button();
             this.pbButtonPesquisar = new System.Windows.Forms.PictureBox();
             this.pBSgMaster = new System.Windows.Forms.PictureBox();
+            this.PBLoading = new System.Windows.Forms.ProgressBar();
+            this.lblPercentual = new System.Windows.Forms.Label();
             this.tcListaArquivos.SuspendLayout();
             this.tbpDowwnload.SuspendLayout();
             this.tbpUpload.SuspendLayout();
@@ -69,11 +71,11 @@
             // 
             // lblAviso
             // 
-            this.lblAviso.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblAviso.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAviso.AutoSize = true;
             this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(3, 401);
+            this.lblAviso.Location = new System.Drawing.Point(3, 408);
             this.lblAviso.Name = "lblAviso";
             this.lblAviso.Size = new System.Drawing.Size(351, 12);
             this.lblAviso.TabIndex = 3;
@@ -82,11 +84,11 @@
             // 
             // TbPesquisar
             // 
-            this.TbPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.TbPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TbPesquisar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TbPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbPesquisar.ForeColor = System.Drawing.Color.DarkGray;
-            this.TbPesquisar.Location = new System.Drawing.Point(158, 359);
+            this.TbPesquisar.Location = new System.Drawing.Point(158, 366);
             this.TbPesquisar.Multiline = true;
             this.TbPesquisar.Name = "TbPesquisar";
             this.TbPesquisar.Size = new System.Drawing.Size(156, 30);
@@ -148,7 +150,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnExcluir.BackColor = System.Drawing.Color.Blue;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -156,7 +158,7 @@
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
             this.btnExcluir.Image = global::UtilitariosSup.Properties.Resources.menos;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExcluir.Location = new System.Drawing.Point(105, 359);
+            this.btnExcluir.Location = new System.Drawing.Point(105, 366);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(39, 30);
             this.btnExcluir.TabIndex = 9;
@@ -166,14 +168,14 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnUpload.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnUpload.BackColor = System.Drawing.Color.Blue;
             this.btnUpload.FlatAppearance.BorderSize = 0;
             this.btnUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpload.ForeColor = System.Drawing.Color.White;
             this.btnUpload.Image = global::UtilitariosSup.Properties.Resources.setacima;
-            this.btnUpload.Location = new System.Drawing.Point(59, 359);
+            this.btnUpload.Location = new System.Drawing.Point(59, 366);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(39, 30);
             this.btnUpload.TabIndex = 7;
@@ -183,14 +185,14 @@
             // 
             // btnDownload
             // 
-            this.btnDownload.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDownload.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDownload.BackColor = System.Drawing.Color.Blue;
             this.btnDownload.FlatAppearance.BorderSize = 0;
             this.btnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDownload.ForeColor = System.Drawing.Color.White;
             this.btnDownload.Image = global::UtilitariosSup.Properties.Resources.setaabaixo;
-            this.btnDownload.Location = new System.Drawing.Point(13, 359);
+            this.btnDownload.Location = new System.Drawing.Point(13, 366);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(39, 30);
             this.btnDownload.TabIndex = 4;
@@ -200,9 +202,9 @@
             // 
             // pbButtonPesquisar
             // 
-            this.pbButtonPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pbButtonPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbButtonPesquisar.Image = global::UtilitariosSup.Properties.Resources.lupa_pequena;
-            this.pbButtonPesquisar.Location = new System.Drawing.Point(320, 359);
+            this.pbButtonPesquisar.Location = new System.Drawing.Point(320, 366);
             this.pbButtonPesquisar.Name = "pbButtonPesquisar";
             this.pbButtonPesquisar.Size = new System.Drawing.Size(27, 28);
             this.pbButtonPesquisar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -221,11 +223,32 @@
             this.pBSgMaster.TabStop = false;
             this.pBSgMaster.Click += new System.EventHandler(this.pBSgMaster_Click);
             // 
+            // PBLoading
+            // 
+            this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PBLoading.Location = new System.Drawing.Point(5, 430);
+            this.PBLoading.Name = "PBLoading";
+            this.PBLoading.Size = new System.Drawing.Size(309, 29);
+            this.PBLoading.TabIndex = 10;
+            // 
+            // lblPercentual
+            // 
+            this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblPercentual.AutoSize = true;
+            this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentual.Location = new System.Drawing.Point(316, 436);
+            this.lblPercentual.Name = "lblPercentual";
+            this.lblPercentual.Size = new System.Drawing.Size(27, 15);
+            this.lblPercentual.TabIndex = 11;
+            this.lblPercentual.Text = "0%";
+            // 
             // fUtilitarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 423);
+            this.ClientSize = new System.Drawing.Size(358, 474);
+            this.Controls.Add(this.lblPercentual);
+            this.Controls.Add(this.PBLoading);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.tcListaArquivos);
             this.Controls.Add(this.btnUpload);
@@ -269,6 +292,8 @@
         public CenteredListBox listBoxUpload;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.ProgressBar PBLoading;
+        private System.Windows.Forms.Label lblPercentual;
     }
 }
 
