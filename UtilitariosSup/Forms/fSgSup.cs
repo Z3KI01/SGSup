@@ -618,7 +618,7 @@ namespace UtilitariosSup
                 return;
 
             IniciarUpload();
-            carregarListaFTP(dirPadraoFtp);
+            CarregarListaFTP(dirPadraoFtp);
         }
 
         private void tcListaArquivos_SelectedIndexChanged(object sender, EventArgs e)
@@ -638,7 +638,7 @@ namespace UtilitariosSup
                     if (login.ShowDialog() == DialogResult.OK)
                     {
                         logou = true;
-                        carregarListaFTP(dirPadraoFtp);
+                        CarregarListaFTP(dirPadraoFtp);
                     }
                     else
                     {
@@ -687,7 +687,7 @@ namespace UtilitariosSup
                 }
             }
         }
-        private async void carregarListaFTP(string directoryPath)
+        private async void CarregarListaFTP(string directoryPath)
         {
             try
             {
@@ -786,7 +786,7 @@ namespace UtilitariosSup
                             ftp.Connect();
                             ftp.UploadFile(localPath, remotePath, FtpRemoteExists.Overwrite, false, FtpVerify.None, progressAction);
 
-                            carregarListaFTP(dirPadraoFtp);
+                            CarregarListaFTP(dirPadraoFtp);
                         }
                     }
 
@@ -818,7 +818,7 @@ namespace UtilitariosSup
                         ftpClient.DeleteFile(arquivoSelecionadoFtp);
                         MessageBox.Show("Arquivo deletado com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        carregarListaFTP(dirPadraoFtp);
+                        CarregarListaFTP(dirPadraoFtp);
                     }
                     else
                     {

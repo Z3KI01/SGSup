@@ -1,0 +1,36 @@
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\SG SUP.exe.config
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\SG SUP.exe
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\SG SUP.pdb
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\FluentFTP.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\Newtonsoft.Json.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Buffers.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Memory.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Net.Http.Json.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Numerics.Vectors.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Text.Encodings.Web.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Text.Json.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.ValueTuple.dll
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\FluentFTP.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\Newtonsoft.Json.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Buffers.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Memory.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Net.Http.Json.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Numerics.Vectors.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Text.Encodings.Web.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Text.Json.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Projetos\SGSup\UtilitariosSup\bin\Release\System.ValueTuple.xml
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\UtilitariosSup.csproj.AssemblyReference.cache
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\UtilitariosSup.Forms.FLogin.resources
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\UtilitariosSup.fUtilitarios.resources
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\UtilitariosSup.Properties.Resources.resources
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\UtilitariosSup.csproj.GenerateResource.cache
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\UtilitariosSup.csproj.CoreCompileInputs.cache
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\Utilitar.454F9362.Up2Date
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\SG SUP.exe
+C:\Projetos\SGSup\UtilitariosSup\obj\Release\SG SUP.pdb
