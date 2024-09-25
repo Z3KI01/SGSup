@@ -46,8 +46,7 @@
               "ViewState": "AQIAACgAAAAAAAAAAAAwwE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-24T17:57:17.012Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -113,8 +112,7 @@
               "RelativeToolTip": "UtilitariosSup\\Classes\\AjudantedeEstilo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T20:39:34.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T20:39:34.846Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs [Design]",
               "RelativeToolTip": "UtilitariosSup\\Forms\\FLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T17:43:06.812Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-24T17:43:06.812Z"
             },
             {
               "$type": "Document",
@@ -136,7 +133,7 @@
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
               "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
               "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs",
-              "ViewState": "AQIAAEYDAAAAAAAAAAAwwFADAAANAAAA",
+              "ViewState": "AQIAANQCAAAAAAAAAAAtwOwCAACFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T16:24:55.711Z",
               "EditorCaption": ""

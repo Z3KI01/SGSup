@@ -755,10 +755,6 @@ namespace UtilitariosSup
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Selecione um arquivo para baixar!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private async Task IniciarTransferenciaFtpComProgressoAsync(string localPath, string remotePath, FtpOperation operacao)
