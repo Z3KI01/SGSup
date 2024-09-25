@@ -162,7 +162,7 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(39, 30);
             this.btnExcluir.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnExcluir, "Excluir F6");
+            this.toolTip1.SetToolTip(this.btnExcluir, "Excluir - F6");
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -179,7 +179,7 @@
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(39, 30);
             this.btnUpload.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnUpload, "Upload F9");
+            this.toolTip1.SetToolTip(this.btnUpload, "Upload - F9");
             this.btnUpload.UseVisualStyleBackColor = false;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -196,7 +196,7 @@
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(39, 30);
             this.btnDownload.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnDownload, "Download F8");
+            this.toolTip1.SetToolTip(this.btnDownload, "Download - F8");
             this.btnDownload.UseVisualStyleBackColor = false;
             this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 

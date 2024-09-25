@@ -14,6 +14,8 @@ using FluentFTP;
 using static System.Net.Mime.MediaTypeNames;
 using UtilitariosSup.Forms;
 using System.Threading.Tasks;
+using FluentFTP.Helpers;
+using System.Linq;
 
 
 namespace UtilitariosSup
@@ -113,6 +115,13 @@ namespace UtilitariosSup
         public bool logou = false;
         public CenteredListBox listBoxSelecionada;
         public TimeSpan tempoExpiracao = TimeSpan.FromHours(24);
+        public bool uploadEmAndamento = false;
+
+        public enum FtpOperation
+        {
+            Download, 
+            Upload
+        }
 
         public fUtilitarios()
         {
@@ -169,7 +178,7 @@ namespace UtilitariosSup
                     if (listBoxSelecionada.Items.Count > 0)
                     {
                         MessageBox.Show("Selecione um arquivo antes de iniciar o download.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                         AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                         listBoxSelecionada.SelectedIndex = 0;
                         listBoxSelecionada.Focus();
@@ -206,8 +215,6 @@ namespace UtilitariosSup
         private async void LoadDownloadItemsAsync()
         {
             btnDownload.Enabled = false;
-            btnUpload.Enabled = false;
-            btnExcluir.Enabled = false;
             TbPesquisar.Enabled = false;
             pbButtonPesquisar.Enabled = false;
             listBoxDownload.Enabled = false;
@@ -452,7 +459,7 @@ namespace UtilitariosSup
                 if (listBoxSelecionada.Items.Count > 0)
                 {
                     MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                     AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
                     listBoxSelecionada.SelectedIndex = 0;
                     listBoxSelecionada.Focus();
@@ -478,6 +485,7 @@ namespace UtilitariosSup
                 {
                     AjudantedeEstilo.ReformulaLblAviso(lblAviso, "           AGUARDE, FINALIZANDO O DOWNLOAD ...", 7);
                     RedimensionarForm(true);
+                    InativarComponentes(true);
 
                 }));
 
@@ -514,14 +522,15 @@ namespace UtilitariosSup
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"ERRO AO BAIXAR O ARQUIVO: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Erro ao baixar o arquivo: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
                 Invoke(new Action(() =>
                 {
-                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                    AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                     RedimensionarForm(false);
+                    InativarComponentes(false);
                 }));
             }
         }
@@ -561,7 +570,7 @@ namespace UtilitariosSup
             }
             else
             {
-                MessageBox.Show("SELECIONE UM ARQUIVO ANTES DE INICIAR O DOWNLOAD", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione um arquivo antes de iniciar o download", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -583,10 +592,53 @@ namespace UtilitariosSup
             }
         }
 
+        private void InativarComponentes(bool baixando)
+        {
+            if (baixando)
+            {
+                tcListaArquivos.Enabled = false;
+                listBoxSelecionada.Enabled = false;
+                TbPesquisar.Enabled = false;
+                btnDownload.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnUpload.Enabled = false;
+            }
+            else
+            {
+                tcListaArquivos.Enabled = true;
+                listBoxSelecionada.Enabled = true;
+                TbPesquisar.Enabled = true;
+                btnDownload.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnUpload.Enabled = true;
+            }
+        }
+
+        private async Task <bool> ExibirAvisoLabel()
+        {
+            if (tcListaArquivos.SelectedIndex == 0)
+            {
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "             ACESSO NEGADO AOS PROCESSOS DE UPLOAD", 6.75f);
+
+                await Task.Delay(5000);
+
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                return false;
+            }
+            
+
+            return true;
+        }
+
         #region FTP
 
-        private void btnUpload_Click(object sender, EventArgs e)
+        private async void btnUpload_Click(object sender, EventArgs e)
         {
+            bool eIndexZero = await ExibirAvisoLabel();
+
+            if (!eIndexZero)
+                return;
+
             IniciarUpload();
             carregarListaFTP(dirPadraoFtp);
         }
@@ -607,28 +659,28 @@ namespace UtilitariosSup
 
                     if (login.ShowDialog() == DialogResult.OK)
                     {
-                        btnUpload.Enabled = true;
-                        btnExcluir.Enabled = true;
                         logou = true;
                         carregarListaFTP(dirPadraoFtp);
-
                     }
                     else
                     {
-                        btnUpload.Enabled = false;
-                        btnExcluir.Enabled = false;
                         tcListaArquivos.SelectTab(0);
                     }
                 }
             }
             else
-            {
+            { 
                 listBoxSelecionada = listBoxDownload;
             }
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private async void btnExcluir_Click(object sender, EventArgs e)
         {
+            bool eIndexZero = await ExibirAvisoLabel();
+
+            if (!eIndexZero)
+                return;
+
             RemoverArquivoFtp();
         }
 
@@ -641,18 +693,33 @@ namespace UtilitariosSup
             AjudantedeEstilo.ReformulaTxtBox(TbPesquisar, 13, HorizontalAlignment.Center, "BUSCAR (F2)", FontStyle.Bold, Color.DarkGray);
             AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
         }
-        private void carregarListaFTP(string directoryPath)
+
+        private void AtualizarListBoxUpload(string[] arquivos)
+        {
+            if (listBoxUpload.InvokeRequired)
+            {
+                listBoxUpload.Invoke(new Action(() => AtualizarListBoxUpload(arquivos)));
+            }
+            else
+            {
+                listBoxUpload.Items.Clear();
+                foreach (var arquivo in arquivos)
+                {
+                    listBoxUpload.Items.Add(arquivo);
+                }
+            }
+        }
+        private async void carregarListaFTP(string directoryPath)
         {
             try
             {
-                var items = ftpClient.GetListing(directoryPath, FtpListOption.AllFiles);
-
-                listBoxUpload.Items.Clear();
-
-                foreach (var item in items)
+                var arquivos = await Task.Run(() =>
                 {
-                    listBoxUpload.Items.Add(item.Name);
-                }
+                    var items = ftpClient.GetListing(directoryPath, FtpListOption.AllFiles);
+                    return items.Select(item => item.Name).ToArray();
+                });
+
+                AtualizarListBoxUpload(arquivos);
             }
             catch (Exception ex)
             {
@@ -660,7 +727,7 @@ namespace UtilitariosSup
             }
         }
 
-        private void IniciarUpload()
+        private async void IniciarUpload()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -674,12 +741,11 @@ namespace UtilitariosSup
                 string fileName = Path.GetFileName(filePath);
                 string remotePath = dirPadraoFtp + fileName;
 
-                using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
-                {
-                    ftp.Connect();
-
-                    ftp.UploadFile(filePath, remotePath);
-                }
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "           AGUARDE, FINALIZANDO O UPLOAD ...", 7);
+                await IniciarTransferenciaFtpComProgressoAsync(filePath, remotePath, FtpOperation.Upload);
+                MessageBox.Show("Upload concluído com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+                listBoxSelecionada.Focus();
             }
         }
 
@@ -700,8 +766,10 @@ namespace UtilitariosSup
 
                     try
                     {
-                        await IniciarDownloadFTPProgessAsync(localPath, arquivoSelecionadoFtp);
+                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "           AGUARDE, FINALIZANDO O DOWNLOAD ...", 7);
+                        await IniciarTransferenciaFtpComProgressoAsync(localPath, arquivoSelecionadoFtp, FtpOperation.Download);
                         MessageBox.Show("Download concluído com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                     }
                     catch (Exception ex)
                     {
@@ -715,11 +783,12 @@ namespace UtilitariosSup
             }
         }
 
-        private async Task IniciarDownloadFTPProgessAsync(string localPath , string remotePath)
+        private async Task IniciarTransferenciaFtpComProgressoAsync(string localPath , string remotePath, FtpOperation operacao)
         {
             try
             {
                 RedimensionarForm(true);
+                InativarComponentes(true);
 
                 Progress<FtpProgress> progress = new Progress<FtpProgress>(p =>
                 {
@@ -729,9 +798,24 @@ namespace UtilitariosSup
 
                 Action<FtpProgress> progressAction = (FtpProgress p) => ((IProgress<FtpProgress>)progress).Report(p);
 
-                await Task.Run(() =>
+                await Task.Run(async () =>
                 {
-                    ftpClient.DownloadFile(localPath, remotePath, FtpLocalExists.Overwrite, FtpVerify.None, progressAction);
+                    if(operacao == FtpOperation.Download)
+                    {
+                        ftpClient.DownloadFile(localPath, remotePath, FtpLocalExists.Overwrite, FtpVerify.None, progressAction);
+                    }
+                    else if(operacao == FtpOperation.Upload)
+                    {
+                        using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
+                        {
+                            uploadEmAndamento = true;
+                            ftp.Connect();
+                            ftp.UploadFile(localPath, remotePath, FtpRemoteExists.Overwrite, false, FtpVerify.None, progressAction);
+
+                            carregarListaFTP(dirPadraoFtp);
+                        }
+                    }
+
                 });
 
                 await Task.Delay(500);
@@ -743,6 +827,7 @@ namespace UtilitariosSup
             finally
             {
                 RedimensionarForm(false);
+                InativarComponentes(false);
             }
         }
 
@@ -757,7 +842,8 @@ namespace UtilitariosSup
                     if (ftpClient.FileExists(arquivoSelecionadoFtp))
                     {
                         ftpClient.DeleteFile(arquivoSelecionadoFtp);
-                        MessageBox.Show("Arquivo deletado com sucesso!");
+                        MessageBox.Show("Arquivo deletado com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         carregarListaFTP(dirPadraoFtp);
                     }
                     else
@@ -776,7 +862,7 @@ namespace UtilitariosSup
             }
         }
 
-        // Apaga um arquivo a cada 24h
+        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data atual 
         private void ApagarArquivoFtpTimer()
         {
             foreach (var item in ftpClient.GetListing(dirPadraoFtp))
