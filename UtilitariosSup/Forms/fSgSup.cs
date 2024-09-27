@@ -192,6 +192,7 @@ namespace UtilitariosSup
         #region Conexão com API e listagem na ListBox
         private async void LoadDownloadItemsAsync()
         {
+            pbAvisoDeleteArquivos.Visible = false;
             btnDownload.Enabled = false;
             TbPesquisar.Enabled = false;
             pbButtonPesquisar.Enabled = false;
@@ -626,6 +627,7 @@ namespace UtilitariosSup
             if (tcListaArquivos.SelectedIndex == 1 && logou != true)
             {
                 listBoxSelecionada = listBoxUpload;
+                pbAvisoDeleteArquivos.Visible = true;
 
                 using (FLogin login = new FLogin())
                 {

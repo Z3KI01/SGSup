@@ -73,6 +73,36 @@ namespace UtilitariosSup.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exclamacao__1_ {
+            get {
+                object obj = ResourceManager.GetObject("exclamacao (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exclamacaoAzul__1_ {
+            get {
+                object obj = ResourceManager.GetObject("exclamacaoAzul (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconInterrogacao {
+            get {
+                object obj = ResourceManager.GetObject("IconInterrogacao", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap libsenhaMaster {
             get {
                 object obj = ResourceManager.GetObject("libsenhaMaster", resourceCulture);

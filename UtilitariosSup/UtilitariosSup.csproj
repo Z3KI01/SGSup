@@ -183,6 +183,9 @@
     <None Include="Resources\btnexcluir.png" />
     <None Include="Resources\menos.png" />
     <None Include="Resources\libsenhaMaster.png" />
+    <None Include="Resources\IconInterrogacao.png" />
+    <None Include="Resources\exclamacao %281%29.png" />
+    <None Include="Resources\exclamacaoAzul %281%29.png" />
     <Content Include="sgSup-removebg-preview-_1_.ico" />
     <Content Include="SGSUPIcone.ico" />
   </ItemGroup>

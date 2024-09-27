@@ -38,16 +38,18 @@
             this.tbpUpload = new System.Windows.Forms.TabPage();
             this.listBoxUpload = new UtilitariosSup.fUtilitarios.CenteredListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pbAvisoDeleteArquivos = new System.Windows.Forms.PictureBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnDownload = new System.Windows.Forms.Button();
-            this.pbButtonPesquisar = new System.Windows.Forms.PictureBox();
-            this.pBSgMaster = new System.Windows.Forms.PictureBox();
             this.PBLoading = new System.Windows.Forms.ProgressBar();
             this.lblPercentual = new System.Windows.Forms.Label();
+            this.pbButtonPesquisar = new System.Windows.Forms.PictureBox();
+            this.pBSgMaster = new System.Windows.Forms.PictureBox();
             this.tcListaArquivos.SuspendLayout();
             this.tbpDowwnload.SuspendLayout();
             this.tbpUpload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvisoDeleteArquivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbButtonPesquisar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBSgMaster)).BeginInit();
             this.SuspendLayout();
@@ -150,6 +152,16 @@
             this.listBoxUpload.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseClick);
             this.listBoxUpload.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseDoubleClick);
             // 
+            // pbAvisoDeleteArquivos
+            // 
+            this.pbAvisoDeleteArquivos.Image = global::UtilitariosSup.Properties.Resources.exclamacaoAzul__1_;
+            this.pbAvisoDeleteArquivos.Location = new System.Drawing.Point(320, 6);
+            this.pbAvisoDeleteArquivos.Name = "pbAvisoDeleteArquivos";
+            this.pbAvisoDeleteArquivos.Size = new System.Drawing.Size(27, 26);
+            this.pbAvisoDeleteArquivos.TabIndex = 12;
+            this.pbAvisoDeleteArquivos.TabStop = false;
+            this.toolTip1.SetToolTip(this.pbAvisoDeleteArquivos, "Os arquivos enviados por upload são apagados do FTP  após 24 horas.");
+            // 
             // btnExcluir
             // 
             this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -202,6 +214,25 @@
             this.btnDownload.UseVisualStyleBackColor = false;
             this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 
+            // PBLoading
+            // 
+            this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PBLoading.Location = new System.Drawing.Point(5, 425);
+            this.PBLoading.Name = "PBLoading";
+            this.PBLoading.Size = new System.Drawing.Size(309, 23);
+            this.PBLoading.TabIndex = 10;
+            // 
+            // lblPercentual
+            // 
+            this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblPercentual.AutoSize = true;
+            this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentual.Location = new System.Drawing.Point(316, 429);
+            this.lblPercentual.Name = "lblPercentual";
+            this.lblPercentual.Size = new System.Drawing.Size(27, 15);
+            this.lblPercentual.TabIndex = 11;
+            this.lblPercentual.Text = "0%";
+            // 
             // pbButtonPesquisar
             // 
             this.pbButtonPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -225,30 +256,12 @@
             this.pBSgMaster.TabStop = false;
             this.pBSgMaster.Click += new System.EventHandler(this.pBSgMaster_Click);
             // 
-            // PBLoading
-            // 
-            this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PBLoading.Location = new System.Drawing.Point(5, 425);
-            this.PBLoading.Name = "PBLoading";
-            this.PBLoading.Size = new System.Drawing.Size(309, 23);
-            this.PBLoading.TabIndex = 10;
-            // 
-            // lblPercentual
-            // 
-            this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblPercentual.AutoSize = true;
-            this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPercentual.Location = new System.Drawing.Point(316, 429);
-            this.lblPercentual.Name = "lblPercentual";
-            this.lblPercentual.Size = new System.Drawing.Size(27, 15);
-            this.lblPercentual.TabIndex = 11;
-            this.lblPercentual.Text = "0%";
-            // 
             // fUtilitarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 456);
+            this.Controls.Add(this.pbAvisoDeleteArquivos);
             this.Controls.Add(this.lblPercentual);
             this.Controls.Add(this.PBLoading);
             this.Controls.Add(this.btnExcluir);
@@ -273,6 +286,7 @@
             this.tcListaArquivos.ResumeLayout(false);
             this.tbpDowwnload.ResumeLayout(false);
             this.tbpUpload.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvisoDeleteArquivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbButtonPesquisar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBSgMaster)).EndInit();
             this.ResumeLayout(false);
@@ -296,6 +310,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.ProgressBar PBLoading;
         private System.Windows.Forms.Label lblPercentual;
+        private System.Windows.Forms.PictureBox pbAvisoDeleteArquivos;
     }
 }
 
