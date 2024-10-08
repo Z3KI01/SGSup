@@ -160,8 +160,7 @@
             this.pbAvisoDeleteArquivos.Size = new System.Drawing.Size(27, 26);
             this.pbAvisoDeleteArquivos.TabIndex = 12;
             this.pbAvisoDeleteArquivos.TabStop = false;
-            this.toolTip1.SetToolTip(this.pbAvisoDeleteArquivos, "Os arquivos enviados por upload são apagados do FTP após 24 horas de acordo com o" +
-        " horário de Brasília.");
+            this.toolTip1.SetToolTip(this.pbAvisoDeleteArquivos, resources.GetString("pbAvisoDeleteArquivos.ToolTip"));
             // 
             // btnExcluir
             // 

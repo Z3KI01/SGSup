@@ -712,11 +712,21 @@ namespace UtilitariosSup
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Selecione um arquivo para enviar",
-                Filter = "Todos os arquivos (*.*)|*.*"
+                Filter = "Arquivos compactados (*.zip; *.rar; *.7z)|*.zip;*.rar;*.7z"
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                string filePathTamanhoArquiivo = openFileDialog.FileName;
+                FileInfo fileInfo = new FileInfo(  filePathTamanhoArquiivo);
+                const long tamanhoMaximo = 300 * 1024 * 1024;
+
+                if (fileInfo.Length > tamanhoMaximo)
+                {
+                    MessageBox.Show("O arquivo selecionado excede o limite de 300 MB.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 string filePath = openFileDialog.FileName;
                 string fileName = Path.GetFileName(filePath);
                 string remotePath = dirPadraoFtp + fileName;

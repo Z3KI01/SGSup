@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Projetos\\SGSup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,34 +33,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 11,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FLogin.cs",
-              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs",
-              "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\FLogin.cs",
-              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs",
-              "RelativeToolTip": "UtilitariosSup\\Forms\\FLogin.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA1wE0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T17:57:17.012Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fSgSup.cs [Design]",
-              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
-              "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
-              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs [Design]",
-              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T16:50:35.452Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -87,6 +61,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FLogin.cs",
+              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\FLogin.cs",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\FLogin.cs",
+              "RelativeToolTip": "UtilitariosSup\\Forms\\FLogin.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA1wE0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T17:57:17.012Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fSgSup.cs [Design]",
+              "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
+              "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs [Design]",
+              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T16:50:35.452Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
               "Title": "MessageBox.cs",
               "DocumentMoniker": "C:\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\137432ab5a1e16a35ab34810ca8b16607f5f02d1e840f97717966773b427023d\\MessageBox.cs",
@@ -95,7 +95,8 @@
               "RelativeToolTip": "..\\..\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\137432ab5a1e16a35ab34810ca8b16607f5f02d1e840f97717966773b427023d\\MessageBox.cs",
               "ViewState": "AQIAAGECAAAAAAAAAAD4v3QCAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T16:59:50.231Z"
+              "WhenOpened": "2024-09-25T16:59:50.231Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -122,13 +123,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "fSgSup.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
               "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
               "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAdAAAA",
+              "ViewState": "AQIAAM0CAAAAAAAAAAAIwN8CAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T16:24:55.711Z",
               "EditorCaption": ""

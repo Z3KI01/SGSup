@@ -120,6 +120,11 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="pbAvisoDeleteArquivos.ToolTip" xml:space="preserve">
+    <value>&gt; Os arquivos enviados por upload são apagados do FTP após 24 horas de acordo com o horário de Brasília.
+&gt; Somente arquivos compactados são permitidos para upload.
+&gt; O limite máximo é de 300 MB por arquivo.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
