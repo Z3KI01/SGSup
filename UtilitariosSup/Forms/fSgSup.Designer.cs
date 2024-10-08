@@ -37,7 +37,6 @@
             this.tbpDowwnload = new System.Windows.Forms.TabPage();
             this.tbpUpload = new System.Windows.Forms.TabPage();
             this.listBoxUpload = new UtilitariosSup.fUtilitarios.CenteredListBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pbAvisoDeleteArquivos = new System.Windows.Forms.PictureBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.lblPercentual = new System.Windows.Forms.Label();
             this.pbButtonPesquisar = new System.Windows.Forms.PictureBox();
             this.pBSgMaster = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tcListaArquivos.SuspendLayout();
             this.tbpDowwnload.SuspendLayout();
             this.tbpUpload.SuspendLayout();
@@ -160,7 +160,8 @@
             this.pbAvisoDeleteArquivos.Size = new System.Drawing.Size(27, 26);
             this.pbAvisoDeleteArquivos.TabIndex = 12;
             this.pbAvisoDeleteArquivos.TabStop = false;
-            this.toolTip1.SetToolTip(this.pbAvisoDeleteArquivos, "Os arquivos enviados por upload são apagados do FTP  após 24 horas.");
+            this.toolTip1.SetToolTip(this.pbAvisoDeleteArquivos, "Os arquivos enviados por upload são apagados do FTP após 24 horas de acordo com o" +
+        " horário de Brasília.");
             // 
             // btnExcluir
             // 
@@ -176,7 +177,6 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(39, 30);
             this.btnExcluir.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnExcluir, "Excluir - F6");
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -193,7 +193,6 @@
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(39, 30);
             this.btnUpload.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnUpload, "Upload - F9");
             this.btnUpload.UseVisualStyleBackColor = false;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -210,7 +209,6 @@
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(39, 30);
             this.btnDownload.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.btnDownload, "Download - F8");
             this.btnDownload.UseVisualStyleBackColor = false;
             this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 
@@ -306,11 +304,11 @@
         private System.Windows.Forms.TabPage tbpDowwnload;
         private System.Windows.Forms.TabPage tbpUpload;
         public CenteredListBox listBoxUpload;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.ProgressBar PBLoading;
         private System.Windows.Forms.Label lblPercentual;
         private System.Windows.Forms.PictureBox pbAvisoDeleteArquivos;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

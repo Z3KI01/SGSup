@@ -114,7 +114,7 @@ namespace UtilitariosSup
         public string sitema = "SGBr Sistemas";
         public bool logou = false;
         public CenteredListBox listBoxSelecionada;
-        public TimeSpan tempoExpiracao = TimeSpan.FromHours(24);
+        public TimeSpan tempoExpiracao = TimeSpan.FromHours(1);
         public bool uploadEmAndamento = false;
 
         public enum FtpOperation
@@ -840,16 +840,31 @@ namespace UtilitariosSup
             }
         }
 
-        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data atual 
+        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data e hora atual de brasilia 
         private void ApagarArquivoFtpTimer()
-        {
+        {            
+            TimeZoneInfo brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+
+            DateTime horaAtualBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasiliaTimeZone);
+
             foreach (var item in ftpClient.GetListing(dirPadraoFtp))
             {
                 if (item.Type == FtpObjectType.File)
                 {
                     DateTime dataModificao = ftpClient.GetModifiedTime(item.FullName);
 
-                    if (DateTime.Now - dataModificao > tempoExpiracao)
+                    if (dataModificao.Kind == DateTimeKind.Local)
+                    {
+                        dataModificao = dataModificao.ToUniversalTime();
+                    }
+                    else if (dataModificao.Kind != DateTimeKind.Utc)
+                    {
+                        dataModificao = DateTime.SpecifyKind(dataModificao, DateTimeKind.Utc);
+                    }
+
+                    DateTime dataModificacaoBrasilia = TimeZoneInfo.ConvertTimeFromUtc(dataModificao, brasiliaTimeZone);
+
+                    if (horaAtualBrasilia - dataModificacaoBrasilia > tempoExpiracao)
                     {
                         ftpClient.DeleteFile(item.FullName);
                     }
