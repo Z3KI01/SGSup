@@ -718,7 +718,7 @@ namespace UtilitariosSup
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePathTamanhoArquiivo = openFileDialog.FileName;
-                FileInfo fileInfo = new FileInfo(  filePathTamanhoArquiivo);
+                FileInfo fileInfo = new FileInfo(filePathTamanhoArquiivo);
                 const long tamanhoMaximo = 300 * 1024 * 1024;
 
                 if (fileInfo.Length > tamanhoMaximo)
@@ -819,44 +819,49 @@ namespace UtilitariosSup
 
         private void RemoverArquivoFtp()
         {
-            if (listBoxUpload.SelectedIndex != -1)
+            if (listBoxUpload.Items.Count > 0)
             {
-                string arquivoSelecionadoFtp = dirPadraoFtp + listBoxUpload.SelectedItem.ToString();
-
-                try
+                if (listBoxUpload.SelectedIndex != -1)
                 {
-                    if (ftpClient.FileExists(arquivoSelecionadoFtp))
-                    {
-                        ftpClient.DeleteFile(arquivoSelecionadoFtp);
-                        MessageBox.Show("Arquivo deletado com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string arquivoSelecionadoFtp = dirPadraoFtp + listBoxUpload.SelectedItem.ToString();
 
-                        CarregarListaFTP(dirPadraoFtp);
-                    }
-                    else
+                    try
                     {
-                        MessageBox.Show("Arquivo não encontrado no FTP.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (ftpClient.FileExists(arquivoSelecionadoFtp))
+                        {
+                            ftpClient.DeleteFile(arquivoSelecionadoFtp);
+                            MessageBox.Show("Arquivo deletado com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            CarregarListaFTP(dirPadraoFtp);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Arquivo não encontrado no FTP.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao deletar o arquivo: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Erro ao deletar o arquivo: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Selecione um arquivo para remover!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    listBoxSelecionada.SelectedIndex = 0;
+                    listBoxSelecionada.Focus();
+
                 }
             }
             else
             {
-                MessageBox.Show("Selecione um arquivo para remover!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                if(listBoxUpload.Items.Count > 0)
-                {
-                    listBoxSelecionada.SelectedIndex = 0;
-                    listBoxSelecionada.Focus();
-                }
+                MessageBox.Show("Não há nenhum arquivo disponível para exclusão.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data e hora atual de brasilia 
         private void ApagarArquivoFtpTimer()
-        {            
+        {
             TimeZoneInfo brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
 
             DateTime horaAtualBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasiliaTimeZone);
