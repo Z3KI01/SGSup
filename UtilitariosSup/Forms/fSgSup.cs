@@ -114,7 +114,7 @@ namespace UtilitariosSup
         public string sitema = "SGBr Sistemas";
         public bool logou = false;
         public CenteredListBox listBoxSelecionada;
-        public TimeSpan tempoExpiracao = TimeSpan.FromHours(1);
+        public TimeSpan tempoExpiracao = TimeSpan.FromHours(24);
         public bool uploadEmAndamento = false;
 
         public enum FtpOperation
@@ -845,8 +845,12 @@ namespace UtilitariosSup
             else
             {
                 MessageBox.Show("Selecione um arquivo para remover!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                listBoxSelecionada.SelectedIndex = 0;
-                listBoxSelecionada.Focus();
+
+                if(listBoxUpload.Items.Count > 0)
+                {
+                    listBoxSelecionada.SelectedIndex = 0;
+                    listBoxSelecionada.Focus();
+                }
             }
         }
 
