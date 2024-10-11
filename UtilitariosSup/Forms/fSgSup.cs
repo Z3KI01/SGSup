@@ -16,6 +16,7 @@ using UtilitariosSup.Forms;
 using System.Threading.Tasks;
 using FluentFTP.Helpers;
 using System.Linq;
+using static UtilitariosSup.fUtilitarios;
 
 
 namespace UtilitariosSup
@@ -110,11 +111,15 @@ namespace UtilitariosSup
             public string Url { get; set; }
         }
 
+        public class WorldTimeApiResponse
+        {
+            public string datetime { get; set; }
+        }
+
         public string dirPadraoFtp = "/dados/sgbr.com.br/interno/arquivos/";
         public string sitema = "SGBr Sistemas";
         public bool logou = false;
         public CenteredListBox listBoxSelecionada;
-        public TimeSpan tempoExpiracao = TimeSpan.FromHours(24);
         public bool uploadEmAndamento = false;
 
         public enum FtpOperation
@@ -859,12 +864,25 @@ namespace UtilitariosSup
             }
         }
 
-        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data e hora atual de brasilia 
-        private void ApagarArquivoFtpTimer()
-        {
-            TimeZoneInfo brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
 
-            DateTime horaAtualBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasiliaTimeZone);
+        public async Task<DateTime> ObterHoraBrasiliaAsync()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                string url = "http://worldtimeapi.org/api/timezone/America/Sao_Paulo";
+                var response = await httpClient.GetStringAsync(url);
+
+                var timeData = JsonConvert.DeserializeObject<WorldTimeApiResponse>(response);
+
+                return DateTime.Parse(timeData.datetime);
+            }
+        }
+
+
+        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data e hora atual de brasilia 
+        private async Task ApagarArquivoFtpTimer()
+        {
+            DateTime horaAtualBrasilia = await ObterHoraBrasiliaAsync();
 
             foreach (var item in ftpClient.GetListing(dirPadraoFtp))
             {
@@ -881,15 +899,14 @@ namespace UtilitariosSup
                         dataModificao = DateTime.SpecifyKind(dataModificao, DateTimeKind.Utc);
                     }
 
-                    DateTime dataModificacaoBrasilia = TimeZoneInfo.ConvertTimeFromUtc(dataModificao, brasiliaTimeZone);
-
-                    if (horaAtualBrasilia - dataModificacaoBrasilia > tempoExpiracao)
+                    if ((horaAtualBrasilia - dataModificao).TotalHours > 24)
                     {
                         ftpClient.DeleteFile(item.FullName);
                     }
                 }
             }
         }
+
 
         #endregion
         private string GetFileFilter(string arquivoSelecionado)
