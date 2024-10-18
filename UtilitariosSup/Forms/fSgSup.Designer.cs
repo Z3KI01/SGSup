@@ -46,6 +46,7 @@
             this.pbButtonPesquisar = new System.Windows.Forms.PictureBox();
             this.pBSgMaster = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCancelarOperacao = new System.Windows.Forms.Button();
             this.tcListaArquivos.SuspendLayout();
             this.tbpDowwnload.SuspendLayout();
             this.tbpUpload.SuspendLayout();
@@ -77,7 +78,7 @@
             this.lblAviso.AutoSize = true;
             this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(3, 408);
+            this.lblAviso.Location = new System.Drawing.Point(3, 406);
             this.lblAviso.Name = "lblAviso";
             this.lblAviso.Size = new System.Drawing.Size(351, 12);
             this.lblAviso.TabIndex = 3;
@@ -176,6 +177,7 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(39, 30);
             this.btnExcluir.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btnExcluir, "Excluir - F6");
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -192,6 +194,7 @@
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(39, 30);
             this.btnUpload.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnUpload, "Upload - F9");
             this.btnUpload.UseVisualStyleBackColor = false;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -208,15 +211,17 @@
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(39, 30);
             this.btnDownload.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btnDownload, "Download - F8");
             this.btnDownload.UseVisualStyleBackColor = false;
             this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 
             // PBLoading
             // 
             this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PBLoading.Location = new System.Drawing.Point(5, 425);
+            this.PBLoading.Location = new System.Drawing.Point(48, 425);
             this.PBLoading.Name = "PBLoading";
-            this.PBLoading.Size = new System.Drawing.Size(309, 23);
+            this.PBLoading.Size = new System.Drawing.Size(270, 23);
+            this.PBLoading.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.PBLoading.TabIndex = 10;
             // 
             // lblPercentual
@@ -224,7 +229,7 @@
             this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblPercentual.AutoSize = true;
             this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPercentual.Location = new System.Drawing.Point(316, 429);
+            this.lblPercentual.Location = new System.Drawing.Point(318, 429);
             this.lblPercentual.Name = "lblPercentual";
             this.lblPercentual.Size = new System.Drawing.Size(27, 15);
             this.lblPercentual.TabIndex = 11;
@@ -253,11 +258,29 @@
             this.pBSgMaster.TabStop = false;
             this.pBSgMaster.Click += new System.EventHandler(this.pBSgMaster_Click);
             // 
+            // btnCancelarOperacao
+            // 
+            this.btnCancelarOperacao.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCancelarOperacao.BackColor = System.Drawing.Color.Blue;
+            this.btnCancelarOperacao.FlatAppearance.BorderSize = 0;
+            this.btnCancelarOperacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarOperacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarOperacao.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarOperacao.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelarOperacao.Location = new System.Drawing.Point(5, 425);
+            this.btnCancelarOperacao.Name = "btnCancelarOperacao";
+            this.btnCancelarOperacao.Size = new System.Drawing.Size(37, 23);
+            this.btnCancelarOperacao.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnCancelarOperacao, "Excluir - F6");
+            this.btnCancelarOperacao.UseVisualStyleBackColor = false;
+            this.btnCancelarOperacao.Visible = false;
+            // 
             // fUtilitarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 456);
+            this.Controls.Add(this.btnCancelarOperacao);
             this.Controls.Add(this.pbAvisoDeleteArquivos);
             this.Controls.Add(this.lblPercentual);
             this.Controls.Add(this.PBLoading);
@@ -308,6 +331,7 @@
         private System.Windows.Forms.Label lblPercentual;
         private System.Windows.Forms.PictureBox pbAvisoDeleteArquivos;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnCancelarOperacao;
     }
 }
 

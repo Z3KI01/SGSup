@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using FluentFTP.Helpers;
 using System.Linq;
 using static UtilitariosSup.fUtilitarios;
+using FluentFTP.Exceptions;
 
 
 namespace UtilitariosSup
@@ -120,7 +121,11 @@ namespace UtilitariosSup
         public string sitema = "SGBr Sistemas";
         public bool logou = false;
         public CenteredListBox listBoxSelecionada;
-        public bool uploadEmAndamento = false;
+        public bool itemSelecionado = true;
+        public bool upload = false;
+
+        public List<string> itensUploadAnterior = new List<string>();
+        public List<string> itensUploadAtual = new List<string>();
 
         public enum FtpOperation
         {
@@ -144,6 +149,7 @@ namespace UtilitariosSup
             btnDownload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
             btnUpload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnUpload.Width, btnUpload.Height, 7, 7));
             btnExcluir.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnExcluir.Width, btnExcluir.Height, 7, 7));
+            btnCancelarOperacao.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCancelarOperacao.Width, btnCancelarOperacao.Height, 7, 7));
 
             TbPesquisar.LostFocus += TbPesquisar_LostFocus;
             listBoxSelecionada = listBoxDownload;
@@ -229,6 +235,10 @@ namespace UtilitariosSup
                     pbButtonPesquisar.Enabled = true;
                     listBoxDownload.Enabled = true;
                 }
+            }
+            catch(HttpRequestException ex)
+            {
+                MessageBox.Show($"Falha de conexão com a API: {ex.Message}. Verifique sua conexão e tente novamente.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -431,6 +441,8 @@ namespace UtilitariosSup
 
         private void BtnDownload_Click(object sender, EventArgs e)
         {
+            upload = false;
+
             if (listBoxSelecionada.SelectedIndex != -1 || TbPesquisar.Tag != null)
             {
                 if (tcListaArquivos.SelectedIndex == 0)
@@ -455,13 +467,17 @@ namespace UtilitariosSup
 
         public void SetProgress(int percentual)
         {
-            if (percentual >= 0 && percentual <= 100)
-                PBLoading.Value = percentual;
+            if (percentual < 0) percentual = 0;
+            if (percentual > 100) percentual = 100;
+
+            PBLoading.Value = percentual;
             lblPercentual.Text = percentual.ToString() + "%";
+            PBLoading.Refresh();
         }
 
         private async void DownloadFileAsync(string url, string filePath)
         {
+            SetProgress(0);
 
             try
             {
@@ -573,6 +589,17 @@ namespace UtilitariosSup
                 PBLoading.Visible = false;
                 lblPercentual.Visible = false;
                 this.Size = new Size(374, 465);
+
+                if (upload)
+                {
+                    btnCancelarOperacao.Visible = true;
+                }
+                else
+                {
+                    btnCancelarOperacao.Visible = false;
+                    PBLoading.Size = new Size(305, 23);
+                }
+                
             }
         }
 
@@ -618,6 +645,8 @@ namespace UtilitariosSup
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
+            upload = true;
+
             bool eIndexZero = await ExibirAvisoLabel();
 
             if (!eIndexZero)
@@ -661,6 +690,8 @@ namespace UtilitariosSup
 
         private async void btnExcluir_Click(object sender, EventArgs e)
         {
+            upload = false;
+
             bool eIndexZero = await ExibirAvisoLabel();
 
             if (!eIndexZero)
@@ -714,6 +745,16 @@ namespace UtilitariosSup
 
         private async void IniciarUpload()
         {
+            if (listBoxUpload.Items.Count > 0)
+            {
+                itensUploadAnterior.Clear();
+
+                foreach (var item in listBoxUpload.Items)
+                {
+                    itensUploadAnterior.Add(item.ToString());
+                }
+            }
+
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Title = "Selecione um arquivo para enviar",
@@ -739,6 +780,26 @@ namespace UtilitariosSup
                 AjudantedeEstilo.ReformulaLblAviso(lblAviso, "           AGUARDE, FINALIZANDO O UPLOAD ...", 7);
                 await IniciarTransferenciaFtpComProgressoAsync(filePath, remotePath, FtpOperation.Upload);
                 MessageBox.Show("Upload concluído com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                foreach (var item in listBoxUpload.Items)
+                {
+                    itensUploadAtual.Add(item.ToString());
+                }
+
+                var novosItens = itensUploadAtual.Except(itensUploadAnterior).ToList();
+
+                if (novosItens.Count > 0)
+                {
+                    string ultimoItemAdicionado = novosItens.Last();
+                    int index = listBoxUpload.Items.IndexOf(ultimoItemAdicionado);
+
+                    if (index != -1)
+                    {
+                        listBoxUpload.SelectedIndex = index;
+                        listBoxUpload.TopIndex = index;
+                    }
+                }
+
                 AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                 listBoxSelecionada.Focus();
             }
@@ -781,7 +842,7 @@ namespace UtilitariosSup
                 RedimensionarForm(true);
                 InativarComponentes(true);
 
-                Progress<FtpProgress> progress = new Progress<FtpProgress>(p =>
+                var progress = new Progress<FtpProgress>(p =>
                 {
                     int percentual = (int)p.Progress;
                     PBLoading.Invoke(new Action(() => SetProgress(percentual)));
@@ -799,7 +860,6 @@ namespace UtilitariosSup
                     {
                         using (var ftp = new FtpClient("ftp://files.sgbr.com.br", "publico", "96#s!G@86"))
                         {
-                            uploadEmAndamento = true;
                             ftp.Connect();
                             ftp.UploadFile(localPath, remotePath, FtpRemoteExists.Overwrite, false, FtpVerify.None, progressAction);
 
@@ -811,33 +871,64 @@ namespace UtilitariosSup
 
                 await Task.Delay(500);
             }
+            catch (FtpCommandException ex)
+            {
+                MessageBox.Show($"Erro FTP: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (TimeoutException ex)
+            {
+                MessageBox.Show($"Operação de FTP demorou muito para responder: {ex.Message}. Tente novamente.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception ex)
             {
-                throw new Exception("Erro durante o download", ex);
+                MessageBox.Show($"Erro durante a operação de FTP: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
+                SetProgress(0);
                 RedimensionarForm(false);
                 InativarComponentes(false);
             }
         }
 
-        private void RemoverArquivoFtp()
+        private async void RemoverArquivoFtp()
         {
             if (listBoxUpload.Items.Count > 0)
             {
-                if (listBoxUpload.SelectedIndex != -1)
+                if (itemSelecionado)
                 {
+                    if(listBoxUpload.Items.Count > 0)
+                        listBoxUpload.SelectedIndex = 0;
+
                     string arquivoSelecionadoFtp = dirPadraoFtp + listBoxUpload.SelectedItem.ToString();
 
                     try
                     {
                         if (ftpClient.FileExists(arquivoSelecionadoFtp))
                         {
-                            ftpClient.DeleteFile(arquivoSelecionadoFtp);
-                            MessageBox.Show("Arquivo deletado com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            btnExcluir.Enabled = false;
+
+                            AjudantedeEstilo.ReformulaLblAviso(lblAviso, "                         REMOVENDO ARQUIVO...", 7);
+
+                            await Task.Delay(500);
+
+                            await Task.Run(() => ftpClient.DeleteFile(arquivoSelecionadoFtp));
 
                             CarregarListaFTP(dirPadraoFtp);
+
+                            AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
+
+                            listBoxUpload.Focus();
+                            
+                            itemSelecionado = true;
+
+                            btnExcluir.Enabled = true;
+                            
+                            MessageBox.Show("Arquivo deletado com sucesso!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -847,14 +938,15 @@ namespace UtilitariosSup
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Erro ao deletar o arquivo: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        AjudantedeEstilo.ReformulaLblAviso(lblAviso, "*OU DUPLO CLICK / ENTER NO NOME PARA INICIAR DOWNLOAD", 6.75f);
                     }
                 }
                 else
                 {
                     MessageBox.Show("Selecione um arquivo para remover!", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    listBoxSelecionada.SelectedIndex = 0;
-                    listBoxSelecionada.Focus();
+                    itemSelecionado = true;
 
                 }
             }
@@ -879,7 +971,7 @@ namespace UtilitariosSup
         }
 
 
-        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data e hora atual de brasilia 
+        // Apaga os arquivos a cada 24h de acordo com sua data de modificação e a data e hora atual de Brasília 
         private async Task ApagarArquivoFtpTimer()
         {
             DateTime horaAtualBrasilia = await ObterHoraBrasiliaAsync();

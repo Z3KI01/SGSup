@@ -101,3 +101,39 @@ C:\Projetos\SGSup\UtilitariosSup\obj\Debug\SG SUP.pdb
 C:\Projetos\SGSup\UtilitariosSup\bin\Debug\FluentFTP.dll
 C:\Projetos\SGSup\UtilitariosSup\bin\Debug\FluentFTP.xml
 C:\Projetos\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Forms.FLogin.resources
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\SG SUP.exe.config
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\SG SUP.exe
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\SG SUP.pdb
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\FluentFTP.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Buffers.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Memory.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Net.Http.Json.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Text.Json.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.ValueTuple.dll
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\FluentFTP.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Buffers.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Memory.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Net.Http.Json.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Text.Json.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\bin\Debug\System.ValueTuple.xml
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.AssemblyReference.cache
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Forms.FLogin.resources
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.fUtilitarios.resources
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.Properties.Resources.resources
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.GenerateResource.cache
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\UtilitariosSup.csproj.CoreCompileInputs.cache
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\Utilitar.454F9362.Up2Date
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\SG SUP.exe
+C:\Users\ezequ\OneDrive\Área de Trabalho\SGSup\UtilitariosSup\obj\Debug\SG SUP.pdb
