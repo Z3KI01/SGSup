@@ -186,6 +186,11 @@
     <None Include="Resources\IconInterrogacao.png" />
     <None Include="Resources\exclamacao %281%29.png" />
     <None Include="Resources\exclamacaoAzul %281%29.png" />
+    <None Include="Resources\iconX-removebg-preview.png" />
+    <None Include="Resources\iconX-removebg-preview %281%29.png" />
+    <None Include="Resources\images %281%29.png" />
+    <None Include="Resources\images__1_-removebg-preview.png" />
+    <None Include="Resources\images-removebg-preview %281%29.png" />
     <Content Include="sgSup-removebg-preview-_1_.ico" />
     <Content Include="SGSUPIcone.ico" />
   </ItemGroup>

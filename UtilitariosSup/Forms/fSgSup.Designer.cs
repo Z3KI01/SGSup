@@ -37,16 +37,16 @@
             this.tbpDowwnload = new System.Windows.Forms.TabPage();
             this.tbpUpload = new System.Windows.Forms.TabPage();
             this.listBoxUpload = new UtilitariosSup.fUtilitarios.CenteredListBox();
+            this.PBLoading = new System.Windows.Forms.ProgressBar();
+            this.lblPercentual = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCancelarOperacao = new System.Windows.Forms.Button();
             this.pbAvisoDeleteArquivos = new System.Windows.Forms.PictureBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
-            this.btnDownload = new System.Windows.Forms.Button();
-            this.PBLoading = new System.Windows.Forms.ProgressBar();
-            this.lblPercentual = new System.Windows.Forms.Label();
             this.pbButtonPesquisar = new System.Windows.Forms.PictureBox();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.pBSgMaster = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCancelarOperacao = new System.Windows.Forms.Button();
             this.tcListaArquivos.SuspendLayout();
             this.tbpDowwnload.SuspendLayout();
             this.tbpUpload.SuspendLayout();
@@ -153,6 +153,44 @@
             this.listBoxUpload.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseClick);
             this.listBoxUpload.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseDoubleClick);
             // 
+            // PBLoading
+            // 
+            this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PBLoading.Location = new System.Drawing.Point(48, 425);
+            this.PBLoading.Name = "PBLoading";
+            this.PBLoading.Size = new System.Drawing.Size(270, 23);
+            this.PBLoading.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.PBLoading.TabIndex = 10;
+            // 
+            // lblPercentual
+            // 
+            this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblPercentual.AutoSize = true;
+            this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentual.Location = new System.Drawing.Point(318, 429);
+            this.lblPercentual.Name = "lblPercentual";
+            this.lblPercentual.Size = new System.Drawing.Size(27, 15);
+            this.lblPercentual.TabIndex = 11;
+            this.lblPercentual.Text = "0%";
+            // 
+            // btnCancelarOperacao
+            // 
+            this.btnCancelarOperacao.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCancelarOperacao.BackColor = System.Drawing.Color.Blue;
+            this.btnCancelarOperacao.FlatAppearance.BorderSize = 0;
+            this.btnCancelarOperacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarOperacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarOperacao.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarOperacao.Image = global::UtilitariosSup.Properties.Resources.images_removebg_preview__1_;
+            this.btnCancelarOperacao.Location = new System.Drawing.Point(5, 425);
+            this.btnCancelarOperacao.Name = "btnCancelarOperacao";
+            this.btnCancelarOperacao.Size = new System.Drawing.Size(37, 23);
+            this.btnCancelarOperacao.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnCancelarOperacao, "Excluir - F6");
+            this.btnCancelarOperacao.UseVisualStyleBackColor = false;
+            this.btnCancelarOperacao.Visible = false;
+            this.btnCancelarOperacao.Click += new System.EventHandler(this.btnCancelarOperacao_Click);
+            // 
             // pbAvisoDeleteArquivos
             // 
             this.pbAvisoDeleteArquivos.Image = global::UtilitariosSup.Properties.Resources.exclamacaoAzul__1_;
@@ -198,6 +236,18 @@
             this.btnUpload.UseVisualStyleBackColor = false;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
+            // pbButtonPesquisar
+            // 
+            this.pbButtonPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pbButtonPesquisar.Image = global::UtilitariosSup.Properties.Resources.lupa_pequena;
+            this.pbButtonPesquisar.Location = new System.Drawing.Point(320, 366);
+            this.pbButtonPesquisar.Name = "pbButtonPesquisar";
+            this.pbButtonPesquisar.Size = new System.Drawing.Size(27, 28);
+            this.pbButtonPesquisar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbButtonPesquisar.TabIndex = 6;
+            this.pbButtonPesquisar.TabStop = false;
+            this.pbButtonPesquisar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbButtonPesquisar_MouseClick);
+            // 
             // btnDownload
             // 
             this.btnDownload.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -215,38 +265,6 @@
             this.btnDownload.UseVisualStyleBackColor = false;
             this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 
-            // PBLoading
-            // 
-            this.PBLoading.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.PBLoading.Location = new System.Drawing.Point(48, 425);
-            this.PBLoading.Name = "PBLoading";
-            this.PBLoading.Size = new System.Drawing.Size(270, 23);
-            this.PBLoading.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.PBLoading.TabIndex = 10;
-            // 
-            // lblPercentual
-            // 
-            this.lblPercentual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblPercentual.AutoSize = true;
-            this.lblPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPercentual.Location = new System.Drawing.Point(318, 429);
-            this.lblPercentual.Name = "lblPercentual";
-            this.lblPercentual.Size = new System.Drawing.Size(27, 15);
-            this.lblPercentual.TabIndex = 11;
-            this.lblPercentual.Text = "0%";
-            // 
-            // pbButtonPesquisar
-            // 
-            this.pbButtonPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbButtonPesquisar.Image = global::UtilitariosSup.Properties.Resources.lupa_pequena;
-            this.pbButtonPesquisar.Location = new System.Drawing.Point(320, 366);
-            this.pbButtonPesquisar.Name = "pbButtonPesquisar";
-            this.pbButtonPesquisar.Size = new System.Drawing.Size(27, 28);
-            this.pbButtonPesquisar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbButtonPesquisar.TabIndex = 6;
-            this.pbButtonPesquisar.TabStop = false;
-            this.pbButtonPesquisar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbButtonPesquisar_MouseClick);
-            // 
             // pBSgMaster
             // 
             this.pBSgMaster.Image = global::UtilitariosSup.Properties.Resources.logo_master_220x48px;
@@ -257,23 +275,6 @@
             this.pBSgMaster.TabIndex = 2;
             this.pBSgMaster.TabStop = false;
             this.pBSgMaster.Click += new System.EventHandler(this.pBSgMaster_Click);
-            // 
-            // btnCancelarOperacao
-            // 
-            this.btnCancelarOperacao.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancelarOperacao.BackColor = System.Drawing.Color.Blue;
-            this.btnCancelarOperacao.FlatAppearance.BorderSize = 0;
-            this.btnCancelarOperacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarOperacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarOperacao.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarOperacao.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelarOperacao.Location = new System.Drawing.Point(5, 425);
-            this.btnCancelarOperacao.Name = "btnCancelarOperacao";
-            this.btnCancelarOperacao.Size = new System.Drawing.Size(37, 23);
-            this.btnCancelarOperacao.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.btnCancelarOperacao, "Excluir - F6");
-            this.btnCancelarOperacao.UseVisualStyleBackColor = false;
-            this.btnCancelarOperacao.Visible = false;
             // 
             // fUtilitarios
             // 
