@@ -150,6 +150,7 @@
             this.listBoxUpload.Sorted = true;
             this.listBoxUpload.TabIndex = 1;
             this.listBoxUpload.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseClick);
+            this.listBoxUpload.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxUpload_KeyDown);
             this.listBoxUpload.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxUpload_MouseDoubleClick);
             // 
             // PBLoading
