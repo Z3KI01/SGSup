@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Projetos\\SGSup\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|c:\\projetos\\sgsup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|C:\\Projetos\\SGSup\\utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8040AB6-1680-4028-BF07-3653CC73280A}|UtilitariosSup\\UtilitariosSup.csproj|solutionrelative:utilitariossup\\forms\\fsgsup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -57,8 +57,8 @@
               "Title": "fSgSup.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
-              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs [Design]*",
-              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs [Design]*",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs [Design]",
+              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-24T16:50:35.452Z",
               "IsPinned": true,
@@ -90,8 +90,8 @@
               "Title": "Delegate.cs",
               "DocumentMoniker": "C:\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\537b37e4457195d6d00a575127b69f6a9ae5cc4fee315d48c4c58208d23c9dd4\\Delegate.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\537b37e4457195d6d00a575127b69f6a9ae5cc4fee315d48c4c58208d23c9dd4\\Delegate.cs",
-              "ToolTip": "C:\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\537b37e4457195d6d00a575127b69f6a9ae5cc4fee315d48c4c58208d23c9dd4\\Delegate.cs [Somente Leitura]",
-              "RelativeToolTip": "..\\..\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\537b37e4457195d6d00a575127b69f6a9ae5cc4fee315d48c4c58208d23c9dd4\\Delegate.cs [Somente Leitura]",
+              "ToolTip": "C:\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\537b37e4457195d6d00a575127b69f6a9ae5cc4fee315d48c4c58208d23c9dd4\\Delegate.cs",
+              "RelativeToolTip": "..\\..\\Users\\SGBr\\AppData\\Local\\Temp\\.vsdbgsrc\\537b37e4457195d6d00a575127b69f6a9ae5cc4fee315d48c4c58208d23c9dd4\\Delegate.cs",
               "ViewState": "AQIAAI8AAAAAAAAAAAAvwJwAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T16:18:32.517Z"
@@ -114,9 +114,9 @@
               "Title": "fSgSup.cs",
               "DocumentMoniker": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
               "RelativeDocumentMoniker": "UtilitariosSup\\Forms\\fSgSup.cs",
-              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs*",
-              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs*",
-              "ViewState": "AgIAAPMBAAAAAAAAAAAwwAoCAABvAAAAAAAAAA==",
+              "ToolTip": "C:\\Projetos\\SGSup\\UtilitariosSup\\Forms\\fSgSup.cs",
+              "RelativeToolTip": "UtilitariosSup\\Forms\\fSgSup.cs",
+              "ViewState": "AgIAAE0DAAAAAAAAAAAqwIgDAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T16:24:55.711Z",
               "EditorCaption": ""

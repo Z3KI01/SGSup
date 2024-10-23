@@ -20,6 +20,7 @@ using static UtilitariosSup.fUtilitarios;
 using FluentFTP.Exceptions;
 using System.Threading;
 using System.Net.Sockets;
+using static System.Net.WebRequestMethods;
 
 
 namespace UtilitariosSup
@@ -790,6 +791,7 @@ namespace UtilitariosSup
                 string remotePath = dirPadraoFtp + fileName;
 
                 AjudantedeEstilo.ReformulaLblAviso(lblAviso, "                Aguarde, finalizando o upload ...", 9);
+
                 await IniciarTransferenciaFtpComProgressoAsync(filePath, remotePath, FtpOperation.Upload);
 
                 foreach (var item in listBoxUpload.Items)
@@ -896,6 +898,9 @@ namespace UtilitariosSup
                                     catch (FtpException ex)
                                     {
                                         MessageBox.Show($"Houve um problema ao fazer upload do arquivo: {ex.Message}. Por favor, tente novamente mais tarde. Se o problema persistir, reinicie a aplicação.", sitema , MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        if(ftp.FileExists(remotePath))
+                                            ftp.DeleteFile(remotePath);
                                     }
                                     finally
                                     {
@@ -917,6 +922,10 @@ namespace UtilitariosSup
                         else
                         {
                             MessageBox.Show("Erro de rede: a conexão foi encerrada pelo servidor. Tente novamente mais tarde.", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            if(ftpClient.FileExists(remotePath))
+                                ftpClient.DeleteFile(remotePath);
+
                             throw;
                         }
                     }
@@ -927,10 +936,16 @@ namespace UtilitariosSup
             catch (FtpCommandException ex)
             {
                 MessageBox.Show($"Erro FTP: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                if (ftpClient.FileExists(remotePath))
+                    ftpClient.DeleteFile(remotePath);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro durante a operação de FTP: {ex.Message}", sitema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                if (ftpClient.FileExists(remotePath))
+                    ftpClient.DeleteFile(remotePath);
             }
             finally
             {
