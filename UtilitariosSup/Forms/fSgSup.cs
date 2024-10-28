@@ -1,26 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using FluentFTP;
+using FluentFTP.Exceptions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Web.WebSockets;
-using System.Windows.Forms;
-using System.Diagnostics;
-using FluentFTP;
-using static System.Net.Mime.MediaTypeNames;
-using UtilitariosSup.Forms;
-using System.Threading.Tasks;
-using FluentFTP.Helpers;
 using System.Linq;
-using static UtilitariosSup.fUtilitarios;
-using FluentFTP.Exceptions;
-using System.Threading;
+using System.Net.Http;
 using System.Net.Sockets;
-using static System.Net.WebRequestMethods;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using UtilitariosSup.Forms;
 
 
 namespace UtilitariosSup
@@ -149,6 +141,7 @@ namespace UtilitariosSup
         }
         private async void fUtilitarios_Load(object sender, EventArgs e)
         {
+            RedimensionarForm(false);
             btnDownload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnDownload.Width, btnDownload.Height, 7, 7));
             btnUpload.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnUpload.Width, btnUpload.Height, 7, 7));
             btnExcluir.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnExcluir.Width, btnExcluir.Height, 7, 7));
@@ -156,7 +149,6 @@ namespace UtilitariosSup
             TbPesquisar.LostFocus += TbPesquisar_LostFocus;
             listBoxSelecionada = listBoxDownload;
             await ApagarArquivoFtpTimer();
-            RedimensionarForm(false);
         }
 
 
@@ -651,27 +643,30 @@ namespace UtilitariosSup
 
         private void tcListaArquivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tcListaArquivos.SelectedIndex == 1 && logou != true)
+            if (tcListaArquivos.SelectedIndex == 1)
             {
                 listBoxSelecionada = listBoxUpload;
                 pbAvisoDeleteArquivos.Visible = true;
 
-                using (FLogin login = new FLogin())
+                if (logou != true)
                 {
-                    login.StartPosition = FormStartPosition.Manual;
-                    login.Location = new Point(
-                        this.Location.X + (this.Width - login.Width) / 2,
-                        this.Location.Y + (this.Height - login.Height) / 2
-                    );
+                    using (FLogin login = new FLogin())
+                    {
+                        login.StartPosition = FormStartPosition.Manual;
+                        login.Location = new Point(
+                            this.Location.X + (this.Width - login.Width) / 2,
+                            this.Location.Y + (this.Height - login.Height) / 2
+                        );
 
-                    if (login.ShowDialog() == DialogResult.OK)
-                    {
-                        logou = true;
-                        CarregarListaFTP(dirPadraoFtp);
-                    }
-                    else
-                    {
-                        tcListaArquivos.SelectTab(0);
+                        if (login.ShowDialog() == DialogResult.OK)
+                        {
+                            logou = true;
+                            CarregarListaFTP(dirPadraoFtp);
+                        }
+                        else
+                        {
+                            tcListaArquivos.SelectTab(0);
+                        }
                     }
                 }
             }
